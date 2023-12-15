@@ -18,3 +18,5 @@ target/
 .metadata
 **/.DS_Store
 Servers/
+**/.settings
+**/build/
