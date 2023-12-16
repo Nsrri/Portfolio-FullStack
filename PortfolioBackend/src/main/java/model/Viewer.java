@@ -14,16 +14,20 @@ public class Viewer {
 	private String password;
 	private String retriever;
 	private Boolean isNewViewer;
+	private int occupationId;
+	
+	
+	public Occupation occupation;
+	
+
 	
 	
 	public Viewer() {
-		
 	}
-	
 	
 
 	public Viewer(String firstname, String lastname, LocalDate birthdate, String gender, String country,
-			String email, String password, String retriever, Boolean isNewViewer) {
+			String email, String password, String retriever, int occupationId) {
 		this.firstname = firstname;
 		this.lastname = lastname;
 		this.birthdate = birthdate;
@@ -32,10 +36,8 @@ public class Viewer {
 		this.email = email;
 		this.password = password;
 		this.retriever = retriever;
-		this.isNewViewer = isNewViewer;
+		this.occupationId = occupationId;
 	}
-
-
 
 
 
@@ -95,23 +97,38 @@ public class Viewer {
 	public void setBirthdate(LocalDate birthdate) {
 		this.birthdate = birthdate;
 	}
-
-	public Boolean getIsNewViewer() {
-		return isNewViewer;
+	
+	public Occupation getOccupation() {
+		return occupation;
 	}
 
-	public void setIsNewViewer(Boolean isNewViewer) {
-		this.isNewViewer = isNewViewer;
+	public void setOccupation(Occupation occupation) {
+		this.occupation = occupation;
 	}
 
+
+   
+
+	public int getOccupationId() {
+		return occupationId;
+	}
+
+
+	public void setOccupationId(int occupationId) {
+		this.occupationId = occupationId;
+	}
 
 
 	@Override
 	public String toString() {
 		return "Viewer [viewerId=" + viewerId + ", firstname=" + firstname + ", lastname=" + lastname + ", birthdate="
 				+ birthdate + ", gender=" + gender + ", country=" + country + ", email=" + email + ", password="
-				+ password + ", retriever=" + retriever + ", isNewViewer=" + isNewViewer + "]";
+				+ password + ", retriever=" + retriever + ", isNewViewer=" + isNewViewer + ", occupationId="
+				+ occupationId + ", occupation=" + occupation + "]";
 	}
+
+
+
 	
 	
 

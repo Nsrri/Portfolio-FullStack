@@ -11,6 +11,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
+import model.Occupation;
 import model.Viewer;
 
 public  class ViewerService implements IViewer{
@@ -45,6 +46,7 @@ public  class ViewerService implements IViewer{
 			
 			while(rs.next()) {
 				viewer = new Viewer();
+				viewer.setViewerId(rs.getInt("viewer_id"));
 				viewer.setFirstname(rs.getString("firstname"));
 				viewer.setLastname(rs.getString("lastname"));
 				viewer.setBirthdate(rs.getDate("birthdate").toLocalDate());
@@ -53,6 +55,13 @@ public  class ViewerService implements IViewer{
 				viewer.setPassword(rs.getString("password"));
 				viewer.setRetriever(rs.getString("retriever"));
 				viewer.setCountry(rs.getString("country"));
+				viewer.setOccupationId(rs.getInt("occupation"));
+				
+				int occupationId = rs.getInt("occupation");
+				System.out.println(occupationId);
+	            viewer.setOccupation(getOccupationById(occupationId));
+				
+			
 			
 			}
 			con.close();		
@@ -66,9 +75,10 @@ public  class ViewerService implements IViewer{
 	
 	public int createNewViewerAccount(Viewer viewer) {
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+		int occupationstatus = 0;
 		int status = 0;
 		
-		String inserSqlString = "insert into viewer(firstname,lastname, birthdate, gender, email, password, retriever, country)" + "Values(?,?, ?, ?, ?, ?, ?, ?)";
+		String inserSqlString = "insert into viewer(firstname,lastname, birthdate, gender, email, password, retriever, country, occupation)" + "Values(?,?, ?, ?, ?, ?, ?, ?,?)";
 		
 		try {
 			this.con = DriverManager.getConnection(DB_URL);
@@ -81,16 +91,24 @@ public  class ViewerService implements IViewer{
 			insertNewRecord.setString(6, viewer.getPassword());
 			insertNewRecord.setString(7, viewer.getRetriever());
 			insertNewRecord.setString(8, viewer.getCountry());
-			status = insertNewRecord.executeUpdate();
-            ResultSet rs = insertNewRecord.getGeneratedKeys();
+			insertNewRecord.setInt(9, viewer.getOccupationId());
 			
+			status = insertNewRecord.executeUpdate();
+			if(getOccupationById(viewer.getOccupationId()) != null && status > 0) {
+				
+				occupationstatus = 1;
+				ResultSet rs = insertNewRecord.getGeneratedKeys();
+	            
 				 rs.next();
 				viewer.setViewerId(rs.getInt(1));
+				viewer.occupation = getOccupationById(viewer.getOccupationId());
+			}
+            
 			con.close();		
 		} catch(SQLException e) {
 			e.printStackTrace();
 		}
-		return status;
+		return occupationstatus;
 		
 	}
     @Override
@@ -166,6 +184,7 @@ public  class ViewerService implements IViewer{
 			
 			while(rs.next()) {
 				viewer = new Viewer();
+				viewer.setViewerId(rs.getInt("viewer_id"));
 				viewer.setFirstname(rs.getString("firstname"));
 				viewer.setLastname(rs.getString("lastname"));
 				viewer.setBirthdate(rs.getDate("birthdate").toLocalDate());
@@ -174,7 +193,13 @@ public  class ViewerService implements IViewer{
 				viewer.setPassword(rs.getString("password"));
 				viewer.setRetriever(rs.getString("retriever"));
 				viewer.setCountry(rs.getString("country"));
-				viewerArray.add(viewer);
+				viewer.setOccupationId(rs.getInt("occupation"));
+				
+				int occupationId = rs.getInt("occupation");
+				System.out.println(occupationId);
+	            viewer.setOccupation(getOccupationById(occupationId));
+	            
+	            viewerArray.add(viewer);
 			
 			}
 			con.close();		
@@ -184,6 +209,33 @@ public  class ViewerService implements IViewer{
 		return viewerArray;
 		
 	}
+	@Override
+	public Occupation getOccupationById(int occupationId) {
+		Occupation occupation = null;
+		
+		String selectSqlString = "select * from occupation where occupation_id=?";
+		
+		try {
+			this.con = DriverManager.getConnection(DB_URL);
+			PreparedStatement selectOccupationWithId = con.prepareStatement(selectSqlString);
+			selectOccupationWithId.setInt(1, occupationId);
+			ResultSet rs = selectOccupationWithId.executeQuery();
+			
+			while(rs.next()) {
+				occupation = new Occupation();
+				occupation.setOccupation_id(rs.getInt("occupation_id"));
+				occupation.setOccupation_name(rs.getString("occupation_name"));
+				
+			
+			}
+			con.close();		
+		} catch(SQLException e) {
+			e.printStackTrace();
+		}
+		return (occupation != null) ? occupation : new Occupation();
+	
+	}
+	
 
 	
 

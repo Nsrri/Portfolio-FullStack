@@ -24,11 +24,14 @@ import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
+import  org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.MethodOrderer;
+import org.junit.jupiter.api.TestMethodOrder;
 import org.junit.jupiter.api.Order;
-import org.junit.jupiter.api.Test;
 
 
 import model.Viewer;
+import service.ViewerService;
 
 public class ApiTester {
 	
@@ -77,7 +80,8 @@ public class ApiTester {
     @Order(3)
     public void test_addNewAccount() throws ClientProtocolException, IOException {
     	DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-    	Viewer viewer = new Viewer("Sebastian", "Mueller", LocalDate.parse("1997-01-01", dtf), "Male","Switzerland", "david.mueller@ubs.com","1234","1236",true );
+    
+    	Viewer viewer = new Viewer("Sebastian", "Mueller", LocalDate.parse("1997-01-01", dtf), "Male","Switzerland", "david.mueller@ubs.com","1234","1236", 1);
     
     	
     	ObjectMapper mapper = new ObjectMapper();
