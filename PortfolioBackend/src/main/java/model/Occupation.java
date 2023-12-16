@@ -32,11 +32,6 @@ public class Occupation {
 	}
 	
 
-
-
-
-
-
 	public Occupation(String occupation_name) {
 		this.occupation_name = occupation_name;
 	}

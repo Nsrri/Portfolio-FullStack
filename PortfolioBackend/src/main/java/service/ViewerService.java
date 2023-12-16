@@ -10,21 +10,23 @@ import java.sql.Statement;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
-
 import model.Occupation;
 import model.Viewer;
+
 
 public  class ViewerService implements IViewer{
 	
 	public String DB_URL = "jdbc:mysql://localhost:3306/portfolio?user=nasrinjafari&password=Dela9090!";
     Connection con;
+    
 	  public ViewerService(){
 	        try {
+	        	// This is deprecated and needs to be corrected
 	        	Class.forName("com.mysql.jdbc.Driver");
 	            this.con = DriverManager.getConnection(this.DB_URL);
 	    
 	        }
-	        catch (java.sql.SQLException e) {
+	        catch (SQLException e) {
 	            e.printStackTrace();
 			} catch (ClassNotFoundException e) {
 				e.printStackTrace();
@@ -57,12 +59,9 @@ public  class ViewerService implements IViewer{
 				viewer.setCountry(rs.getString("country"));
 				viewer.setOccupationId(rs.getInt("occupation"));
 				
+				// get the occupation object based on id 
 				int occupationId = rs.getInt("occupation");
-				System.out.println(occupationId);
 	            viewer.setOccupation(getOccupationById(occupationId));
-				
-			
-			
 			}
 			con.close();		
 		} catch(SQLException e) {
@@ -71,11 +70,13 @@ public  class ViewerService implements IViewer{
 		return viewer;
 		
 	}
-    @Override
 	
+	
+    @Override
 	public int createNewViewerAccount(Viewer viewer) {
+    	
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-		int occupationstatus = 0;
+		int occupationExists = 0;
 		int status = 0;
 		
 		String inserSqlString = "insert into viewer(firstname,lastname, birthdate, gender, email, password, retriever, country, occupation)" + "Values(?,?, ?, ?, ?, ?, ?, ?,?)";
@@ -94,9 +95,11 @@ public  class ViewerService implements IViewer{
 			insertNewRecord.setInt(9, viewer.getOccupationId());
 			
 			status = insertNewRecord.executeUpdate();
+			
+			// this variable is checking if this occupation exists in the occupation table then add new record
 			if(getOccupationById(viewer.getOccupationId()) != null && status > 0) {
 				
-				occupationstatus = 1;
+				occupationExists = 1;
 				ResultSet rs = insertNewRecord.getGeneratedKeys();
 	            
 				 rs.next();
@@ -108,7 +111,7 @@ public  class ViewerService implements IViewer{
 		} catch(SQLException e) {
 			e.printStackTrace();
 		}
-		return occupationstatus;
+		return occupationExists;
 		
 	}
     @Override
@@ -195,8 +198,8 @@ public  class ViewerService implements IViewer{
 				viewer.setCountry(rs.getString("country"));
 				viewer.setOccupationId(rs.getInt("occupation"));
 				
+				// It will fetch the referenced occupation 
 				int occupationId = rs.getInt("occupation");
-				System.out.println(occupationId);
 	            viewer.setOccupation(getOccupationById(occupationId));
 	            
 	            viewerArray.add(viewer);

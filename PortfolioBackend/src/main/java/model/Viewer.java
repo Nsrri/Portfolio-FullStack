@@ -106,9 +106,6 @@ public class Viewer {
 		this.occupation = occupation;
 	}
 
-
-   
-
 	public int getOccupationId() {
 		return occupationId;
 	}

@@ -3,6 +3,8 @@ package controller;
 import java.util.List;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+
+import exceptionManager.InvalidCredentialException;
 import jakarta.ws.rs.Consumes;
 import jakarta.ws.rs.DELETE;
 import jakarta.ws.rs.GET;
@@ -22,8 +24,8 @@ import validator.InputValidator;
 @Path("/v2")
 public class ViewerController {
 	
-	InputValidator validator = new InputValidator();
 	ViewerService viewService  = new ViewerService();
+	InputValidator validator = new InputValidator();
 	Logger logger = LogManager.getLogger(ViewerController.class);
 	
 	@Path("/getallviewer")
@@ -31,17 +33,13 @@ public class ViewerController {
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response getAllViewer() {
 		List<Viewer> viewer =  this.viewService.getViewerAll();
+		
 		 logger.info("Viewer list size: " + viewer.size());
 		 logger.info(viewer);
-
-		    for (Viewer v : viewer) {
-		        logger.info("Viewer details: " + v);
-		    }
-
+		 // If the viewer object is not null it will give a list of all existing records in viewer
 		    return viewer.isEmpty()
 		            ? Response.status(Response.Status.NOT_FOUND).build()
 		            : Response.status(Response.Status.OK).entity(viewer).build();
- 
 	}
 	
 	
@@ -52,6 +50,7 @@ public class ViewerController {
 	public Response validateRegisteredUser(@QueryParam ("id") int id) {
 		Viewer viewer =  this.viewService.getViewerById(id);
 		logger.info(viewer);
+		 // Check if user exists
 		return  viewer == null ? Response.status(Response.Status.NOT_FOUND).build() : Response.status(Response.Status.OK).entity(viewer).build();
  
 	}
@@ -60,24 +59,26 @@ public class ViewerController {
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	public Response createNewAccount(Viewer viewer) {
+	public Response createNewAccount(Viewer viewer) throws InvalidCredentialException {
 		 int status = 0;
 		
-		if(validator.EmailValidator(viewer.getEmail()) && validator.passwordValidator(viewer.getPassword())) {
-			status = viewService.createNewViewerAccount(viewer);
+		 // Check if the user Credentials are correct then insert new record
+		if(!validator.EmailValidator(viewer.getEmail()) && !validator.passwordValidator(viewer.getPassword())) {
+			throw new InvalidCredentialException();
 		}
-		
+			status = viewService.createNewViewerAccount(viewer);
 		  return status == 0 ?  Response.status(Response.Status.BAD_REQUEST).build() : Response.status(Response.Status.CREATED).entity(viewer).build();
  
 	}
 	
 	@Path("/updateexistingviewer")
 	@PUT
-	public Response updateExistingViewer(@QueryParam("email") String email, @QueryParam("id") int id) {
+	public Response updateEmail(@QueryParam("email") String email, @QueryParam("id") int id) {
 		int result = 0;
 		if(validator.EmailValidator(email)) {
 			result = viewService.updateViewer(email, id);
 		}
+		//Update the email address of an existing user
 		  return result == 0 ?  Response.status(Response.Status.NOT_FOUND).build() : Response.status(Response.Status.ACCEPTED).build();
  
 	}
@@ -99,24 +100,6 @@ public class ViewerController {
  
 	}
 }
-//    
-//
-//    public void readProperties() {
-// 	   
-// 	   try (InputStream input = getClass().getClassLoader().getResourceAsStream("config.properties") ){
-//
-//        Properties prop = new Properties();
-//
-//        // load a properties file
-//        prop.load(input);
-//
-//        // get the property value and print it out
-//        dbUrl = prop.getProperty("DATA_BASE_URL");
-//        clientUrl = prop.getProperty(" CLIENT_URL");
-//
-// 	   } catch (IOException ex) {
-// 		   ex.printStackTrace();;
-// 	   }
-//    }
+
 
 

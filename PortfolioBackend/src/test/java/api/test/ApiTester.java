@@ -1,15 +1,12 @@
 package api.test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
-
 import org.apache.http.HttpStatus;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.methods.CloseableHttpResponse;
@@ -25,13 +22,8 @@ import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
 import  org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.MethodOrderer;
-import org.junit.jupiter.api.TestMethodOrder;
 import org.junit.jupiter.api.Order;
-
-
 import model.Viewer;
-import service.ViewerService;
 
 public class ApiTester {
 	
@@ -64,7 +56,7 @@ public class ApiTester {
     public void test_getViewerById() 
       throws ClientProtocolException, IOException {
  
-        HttpUriRequest request = new HttpGet(SERVICE_URL+"/validateuser?id=8");
+        HttpUriRequest request = new HttpGet(SERVICE_URL+"/validateuser?id=66");
 
         CloseableHttpResponse httpResponse = HttpClientBuilder
           .create()
@@ -83,11 +75,9 @@ public class ApiTester {
     
     	Viewer viewer = new Viewer("Sebastian", "Mueller", LocalDate.parse("1997-01-01", dtf), "Male","Switzerland", "david.mueller@ubs.com","1234","1236", 1);
     
-    	
+        //Converting the Object to JSONString
     	ObjectMapper mapper = new ObjectMapper();
     	mapper.registerModule(new JavaTimeModule());
- 
-        //Converting the Object to JSONString
         String jsonString = mapper.writeValueAsString(viewer);
     	 
         CloseableHttpClient httpclient  = HttpClients.createDefault();
@@ -111,13 +101,10 @@ public class ApiTester {
            .getStatusLine()
            .getStatusCode());
          
-   //---------------------------------------------Json To String Convertor------------------------------
+        //Json To String Converter
          String viewerAsResponseString = EntityUtils.toString(httpResponse.getEntity());
-         
          Viewer viewerResponse = mapper.readValue(viewerAsResponseString, Viewer.class);
-         
-         
-   //---------------------------------------------------------------------------------------------------  
+
          newViewerId =   viewerResponse.getViewerId();
     }
    
