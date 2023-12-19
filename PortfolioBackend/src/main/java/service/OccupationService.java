@@ -27,7 +27,7 @@ public class OccupationService implements IDao<Occupation> {
 				occupation = new Occupation();
 				occupation.setOccupation_id(rs.getInt("occupation_id"));
 				occupation.setOccupation_name(rs.getString("occupation_name"));
-//				occupation.addViewer(viewerServ.getById(id));
+				occupation.setViewerList(viewerServ.extractViewerByOccupation(rs.getInt("occupation_id")));
 		
 		}
 			ConnectionSingletone.closeConnection();		

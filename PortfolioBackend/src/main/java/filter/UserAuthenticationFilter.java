@@ -7,19 +7,15 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.StringTokenizer;
-
-import jakarta.annotation.Priority;
 import jakarta.annotation.security.DenyAll;
 import jakarta.annotation.security.PermitAll;
 import jakarta.annotation.security.RolesAllowed;
-import jakarta.ws.rs.Priorities;
 import jakarta.ws.rs.container.ContainerRequestContext;
 import jakarta.ws.rs.container.ContainerRequestFilter;
 import jakarta.ws.rs.container.ResourceInfo;
 import jakarta.ws.rs.core.Context;
 import jakarta.ws.rs.core.MultivaluedMap;
 import jakarta.ws.rs.core.Response;
-import jakarta.ws.rs.ext.Provider;
 
 
 /*
@@ -83,9 +79,10 @@ public class UserAuthenticationFilter implements ContainerRequestFilter  {
 
 	private boolean isUserAllowed(final String username, final String password, final Set<String> rolesSet) {
 		boolean isAllowed = false;
-		if (username.equals("admin") && password.equals("Jafari9090!")) {
+		if (username.equals("admin") && password.equals("Jafari9090!") || username.equals("viewer") && password.equals("Dela9090!")) {
 			String userRole = "ADMIN";
-			if (rolesSet.contains(userRole)) {
+			String userRole2 = "VIEWER";
+			if (rolesSet.contains(userRole) || rolesSet.contains(userRole2)) {
 				isAllowed = true;
 			}
 		}

@@ -18,7 +18,6 @@ public  class ViewerService implements IDao<Viewer>{
 	public Viewer getById(int id) {
 		Viewer viewer = null;
 		
-		System.out.println("Hello");
 		
 		String selectSqlString = "select * from viewer where viewer_id=?";
 		
@@ -30,6 +29,7 @@ public  class ViewerService implements IDao<Viewer>{
 			
 			while(rs.next()) {
 				viewer = new Viewer();
+				OccupationService occ = new OccupationService();
 				viewer.setViewerId(rs.getInt("viewer_id"));
 				viewer.setFirstname(rs.getString("firstname"));
 				viewer.setLastname(rs.getString("lastname"));
@@ -39,12 +39,7 @@ public  class ViewerService implements IDao<Viewer>{
 				viewer.setPassword(rs.getString("password"));
 				viewer.setRetriever(rs.getString("retriever"));
 				viewer.setCountry(rs.getString("country"));
-				viewer.setOccupationId(rs.getInt("occupation"));
-				 OccupationService occupationServ = new OccupationService();
-				// get the occupation object based on id 
-//				int occupationId = rs.getInt("occupation");
-////				System.out.print(occupationServ.getById(occupationId));
-//	            viewer.setOccupation(occupationServ.getById(occupationId));
+				viewer.setOccupation(occ.getById(rs.getInt("occupation")));
 			}
 			ConnectionSingletone.closeConnection();
 				
@@ -72,19 +67,19 @@ public  class ViewerService implements IDao<Viewer>{
 			insertNewRecord.setString(6, newRecord.getPassword());
 			insertNewRecord.setString(7, newRecord.getRetriever());
 			insertNewRecord.setString(8, newRecord.getCountry());
-			insertNewRecord.setInt(9, newRecord.getOccupationId());
+			insertNewRecord.setInt(9, newRecord.occupation.getOccupation_id());
 			
 			status = insertNewRecord.executeUpdate();
 			 OccupationService occupationServ = new OccupationService();
 			// this variable is checking if this occupation exists in the occupation table then add new record
-			if(occupationServ.getById(newRecord.getOccupationId()) != null && status > 0) {
+			if(occupationServ.getById(newRecord.occupation.getOccupation_id()) != null && status > 0) {
 				
 				occupationExists = 1;
 				ResultSet rs = insertNewRecord.getGeneratedKeys();
 	            
 				 rs.next();
 				 newRecord.setViewerId(rs.getInt(1));
-				 newRecord.occupation = occupationServ.getById(newRecord.getOccupationId());
+				 newRecord.occupation = occupationServ.getById(newRecord.occupation.getOccupation_id());
 			}
             
 			ConnectionSingletone.closeConnection();		
@@ -95,28 +90,30 @@ public  class ViewerService implements IDao<Viewer>{
 	}
 	@Override
 	public List<Viewer> updateRecord(Viewer newRecord) {
-	       int result = 0;
-	        try {
-	
-	            String updateSql  = "update viewer set email = ? where viewer_id= ?";
-	        	PreparedStatement updateViewer = ConnectionSingletone.getConnection().prepareStatement(updateSql);
-//	        	
-//				updateViewer.setInt(2, viewerId);
-//				updateViewer.setString(1, email);
-				
-	           result = updateViewer.executeUpdate();
-	           ConnectionSingletone.closeConnection();	
-	        } catch (SQLException e) {
-	            System.out.println(e.getErrorCode());
-	            e.printStackTrace();
-	        }
+//	       int result;
+//	        try {
+//	
+//	            String updateSql  = "update viewer set email = ? where viewer_id= ?";
+//	        	PreparedStatement updateViewer = ConnectionSingletone.getConnection().prepareStatement(updateSql);
+////	        	
+////				updateViewer.setInt(2, viewerId);
+////				updateViewer.setString(1, email);
+//				
+//	           result = updateViewer.executeUpdate();
+//	           ConnectionSingletone.closeConnection();	
+//	        } catch (SQLException e) {
+//	            System.out.println(e.getErrorCode());
+//	            e.printStackTrace();
+//	        }
 	        return null;
 	}
 	@Override
 	public int updateRecordSpecific(String newColumnData, int id) {
 	     int result = 0;
+         String updateSql  = "update viewer set email = ? where viewer_id= ?";
 	       try {
-	           String updateSql  = "update viewer set email = ? where viewer_id= ?";
+
+	      	 ConnectionSingletone.getConnection();
 	       	PreparedStatement updateViewer = ConnectionSingletone.getConnection().prepareStatement(updateSql);
 	       	
 				updateViewer.setInt(2, id);
@@ -133,25 +130,24 @@ public  class ViewerService implements IDao<Viewer>{
 	@Override
 	public int deleteRecord(int id) {
 	      int result = 0;
+	      String deleteSql  = "delete from viewer where viewer_id= ?";
         try {
-     
-               String deleteSql  = "delete from viewer where viewer_id = ?";
+              ConnectionSingletone.getConnection();
                PreparedStatement deleteViewer = ConnectionSingletone.getConnection().prepareStatement(deleteSql);
                deleteViewer.setInt(1, id);
                result = deleteViewer.executeUpdate();
-               ConnectionSingletone.closeConnection();	
+               ConnectionSingletone.closeConnection();
             } catch (SQLException e) {
-                System.out.println(e.getErrorCode());
-            e.printStackTrace();
+              e.printStackTrace();
             }
+
+        
     return result;
 	}
 	@Override
 	public List<Viewer> getAllRecords() {
 		Viewer viewer;
 		List<Viewer> viewerArray = new ArrayList<Viewer>();
-		 OccupationService occupationServ = new OccupationService();
-		
 		String selectSqlString = "select * from viewer";
 		
 		try {
@@ -170,13 +166,45 @@ public  class ViewerService implements IDao<Viewer>{
 				viewer.setPassword(rs.getString("password"));
 				viewer.setRetriever(rs.getString("retriever"));
 				viewer.setCountry(rs.getString("country"));
-				viewer.setOccupationId(rs.getInt("occupation"));
-//	            viewer.setOccupation(occupationServ.getById(rs.getInt("occupation")));
+				viewer.occupation.setOccupation_id(rs.getInt("occupation"));
 	            
 	            viewerArray.add(viewer);
 			
 			}
 			ConnectionSingletone.closeConnection();			
+		} catch(SQLException e) {
+			e.printStackTrace();
+		}
+		return viewerArray;
+	}
+	
+	public List<Viewer> extractViewerByOccupation(int id) {
+		Viewer viewer = null;
+		List<Viewer> viewerArray = new ArrayList<Viewer>();
+		
+		
+		String selectSqlString = "select * from viewer where occupation=?";
+		
+		try {
+			ConnectionSingletone.getConnection();
+			PreparedStatement selectViewerWithId = ConnectionSingletone.getConnection().prepareStatement(selectSqlString);
+			selectViewerWithId.setInt(1, id);
+			ResultSet rs = selectViewerWithId.executeQuery();
+			
+			while(rs.next()) {
+				viewer = new Viewer();
+				viewer.setViewerId(rs.getInt("viewer_id"));
+				viewer.setFirstname(rs.getString("firstname"));
+				viewer.setLastname(rs.getString("lastname"));
+				viewer.setBirthdate(rs.getDate("birthdate").toLocalDate());
+				viewer.setGender(rs.getString("gender"));
+				viewer.setEmail(rs.getString("email"));
+				viewer.setCountry(rs.getString("country"));
+				viewerArray.add(viewer);
+				
+			}
+			ConnectionSingletone.closeConnection();
+				
 		} catch(SQLException e) {
 			e.printStackTrace();
 		}

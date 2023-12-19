@@ -1,18 +1,25 @@
 package model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Occupation {
 	private int occupation_id;
 	private String occupation_name;
 	
-	private List<Viewer> viewerList;
+	private List<Viewer> viewerList = new ArrayList<Viewer>();
 
 	public Occupation() {
 		
 	}
 	
-	
+
+	public Occupation(String occupation_name, List<Viewer> viewerList) {
+		this.occupation_name = occupation_name;
+		this.viewerList = viewerList;
+	}
+
+
 	public int getOccupation_id() {
 		return occupation_id;
 	}
@@ -32,9 +39,6 @@ public class Occupation {
 	}
 	
 
-	public Occupation(String occupation_name) {
-		this.occupation_name = occupation_name;
-	}
 	
 	
 	public List<Viewer> getViewerList() {

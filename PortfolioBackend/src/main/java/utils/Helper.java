@@ -3,6 +3,10 @@ package utils;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
+import validator.InputValidator;
+
+import model.Viewer;
+import service.ViewerService;
 
 public class Helper {
   
@@ -26,5 +30,22 @@ public class Helper {
 	   }
 	   return url;
 	   }
+  
+  
+  public boolean userExists(String email, int id) {
+	  boolean isRelatedUser = false; 
+	  InputValidator validator = new InputValidator();
+	  ViewerService viewService  = new ViewerService();
 
+		Viewer viewer = null;
+		// Check if the email address is valid and if the email of retrieved user is the same as client email
+      if(validator.emailValidator(email)) {
+      	viewer =  viewService.getById(id);
+      	if(viewer.getEmail() == email) {
+      		isRelatedUser = true;
+      	}
+
+}
+	return isRelatedUser;
+  }
 }
