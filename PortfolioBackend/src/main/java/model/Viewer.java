@@ -13,11 +13,7 @@ public class Viewer {
 	private String email;
 	private String password;
 	private String retriever;
-	private Boolean isNewViewer;
-	private int occupationId;
-	
-	
-	public Occupation occupation;
+	public Occupation occupation = new Occupation();
 	
 
 	
@@ -27,7 +23,7 @@ public class Viewer {
 	
 
 	public Viewer(String firstname, String lastname, LocalDate birthdate, String gender, String country,
-			String email, String password, String retriever, int occupationId) {
+			String email, String password, String retriever, Occupation occupation) {
 		this.firstname = firstname;
 		this.lastname = lastname;
 		this.birthdate = birthdate;
@@ -36,7 +32,7 @@ public class Viewer {
 		this.email = email;
 		this.password = password;
 		this.retriever = retriever;
-		this.occupationId = occupationId;
+		this.occupation = occupation;
 	}
 
 
@@ -106,27 +102,15 @@ public class Viewer {
 		this.occupation = occupation;
 	}
 
-	public int getOccupationId() {
-		return occupationId;
-	}
-
-
-	public void setOccupationId(int occupationId) {
-		this.occupationId = occupationId;
-	}
 
 
 	@Override
 	public String toString() {
 		return "Viewer [viewerId=" + viewerId + ", firstname=" + firstname + ", lastname=" + lastname + ", birthdate="
 				+ birthdate + ", gender=" + gender + ", country=" + country + ", email=" + email + ", password="
-				+ password + ", retriever=" + retriever + ", isNewViewer=" + isNewViewer + ", occupationId="
-				+ occupationId + ", occupation=" + occupation + "]";
+				+ password + ", retriever=" + retriever +  ", occupationId="
+				+  occupation.getOccupation_id() + "]";
 	}
 
-
-
-	
-	
 
 }

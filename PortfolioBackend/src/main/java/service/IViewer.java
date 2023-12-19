@@ -14,5 +14,6 @@ public interface IViewer {
 	public List<Viewer> getViewerAll();
 	public int updateViewerDynamic(Viewer view);
 	public Occupation getOccupationById(int occupationId);
+	public Occupation getOccupationAll(); 
 	
 }
