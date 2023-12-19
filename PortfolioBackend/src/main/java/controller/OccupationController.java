@@ -5,7 +5,6 @@ import java.util.List;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import exceptionManager.InvalidCredentialException;
 import jakarta.annotation.security.RolesAllowed;
 import jakarta.ws.rs.Consumes;
 import jakarta.ws.rs.DELETE;
@@ -42,7 +41,6 @@ public class OccupationController {
 		//Check if occupation exists
 		List<Occupation> occupation =  this.occupationServ.getAllRecords();
 		 logger.info("Viewer list size: " + occupation.size());
-		 logger.info(occupation);
 		return  occupation == null 
 				? Response.status(Response.Status.NOT_FOUND).build() 
 				: Response.status(Response.Status.OK).entity(occupation).build();
@@ -64,6 +62,7 @@ public class OccupationController {
 		
 		//Check if occupation exists
 		Occupation occupation =  this.occupationServ.getById(id);
+		 logger.info(occupation == null ? "The request object couldn't get retrieved" : "The requested object got retrieved sucessfully" + occupation.getOccupation_id());
 		return  occupation == null 
 				? Response.status(Response.Status.NOT_FOUND).build() 
 				: Response.status(Response.Status.OK).entity(occupation).build();
@@ -75,7 +74,7 @@ public class OccupationController {
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	public Response createNewOccupation(Occupation occupation) throws InvalidCredentialException {
+	public Response createNewOccupation(Occupation occupation) {
 		 int status = 0;
 		 
 		 // check if new occupation meets certain conditions and then add the new record

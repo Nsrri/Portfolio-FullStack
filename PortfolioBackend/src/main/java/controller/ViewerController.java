@@ -4,7 +4,6 @@ import java.time.LocalDate;
 import java.util.List;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
 import exceptionManager.InvalidCredentialException;
 import jakarta.annotation.security.RolesAllowed;
 import jakarta.ws.rs.Consumes;
@@ -39,13 +38,12 @@ public class ViewerController {
 	@Path("/validateuser")
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public Response validateRegisteredUser(@QueryParam ("id") int id, @QueryParam("email") String email) {
+	public Response validateRegisteredUser(@QueryParam ("id") int id, @QueryParam("email") String email) throws InvalidCredentialException {
 		Viewer viewer = null;
 		
 		// Check if the email address is valid and if the email of retrieved user is the same as client email
-		logger.info(viewer);
+		logger.info( viewer == null ? "The requested object is null" : "The id of retrieved object is: " + viewer.getViewerId());
 //		if(!helper.userExists(email, id)) {
-			
 	      	viewer = viewService.getById(id);
 //		}
 
@@ -68,7 +66,6 @@ public class ViewerController {
 		List<Viewer> viewer =  this.viewService.getAllRecords();
 		
 		 logger.info("Viewer list size: " + viewer.size());
-		 logger.info(viewer);
 		 // If the viewer object is not null it will give a list of all existing records in viewer
 		    return viewer.isEmpty()
 		            ? Response.status(Response.Status.NOT_FOUND).build()
@@ -85,13 +82,15 @@ public class ViewerController {
 	public Response createNewAccount(Viewer viewer) throws InvalidCredentialException {
 		int status = 0;
 		 // Check if the user Credentials are correct then insert new record
-		if(!validator.emailValidator(viewer.getEmail()) 
-				|| !validator.passwordValidator(viewer.getPassword())
-				|| !validator.validRange(viewer.getBirthdate(), LocalDate.of(1200, 01, 01),LocalDate.now())) {
-			status = 0;
-		} else {
+		if(validator.emailValidator(viewer.getEmail()) 
+				&& validator.passwordValidator(viewer.getPassword())
+				&& validator.validRange(viewer.getBirthdate(), LocalDate.of(1200, 01, 01),LocalDate.now())) {
 			status = viewService.addNewRecord(viewer);
+			logger.info( viewer == null ? "The new Record wasn't added" : "The new Recoid is added " + viewer.getViewerId());
 			
+		} else {
+			
+			status = 0;
 		}
 		return status == 0 ?   Response.status(Response.Status.BAD_REQUEST).build() : Response.status(Response.Status.OK).entity(viewer).build();
 			 
@@ -101,10 +100,11 @@ public class ViewerController {
 	@RolesAllowed("VIEWER")
 	@Path("/updateexistingviewer")
 	@PUT
-	public Response updateEmail(@QueryParam("email") String email, @QueryParam("id") int id) {
+	public Response updateEmail(@QueryParam("email") String email, @QueryParam("id") int id) throws InvalidCredentialException {
 		int result = 0;
 		if(validator.emailValidator(email)) {
 			result = viewService.updateRecordSpecific(email, id);
+			
 		}
 		//Update the email address of an existing user
 		  return result == 0 
@@ -115,14 +115,16 @@ public class ViewerController {
 	@RolesAllowed({"ADMIN", "VIEWER"})
 	@Path("/deleteviewer")
 	@DELETE
-	public Response deleteViewer(@QueryParam("id") int id, @QueryParam("email") String email) {
+	public Response deleteViewer(@QueryParam("id") int id, @QueryParam("email") String email) throws InvalidCredentialException {
 		int result = 0;
 		
 		// Need to be fixed but for now is all good
 //        if(!helper.userExists(email, id)) {
 //  		
 //        }
+
         result = viewService.deleteRecord(id);
+        
 		  return result == 0 
 				  ?  Response.status(Response.Status.NOT_FOUND).build() 
 				  : Response.status(Response.Status.OK).build();
