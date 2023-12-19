@@ -6,7 +6,7 @@ public class Occupation {
 	private int occupation_id;
 	private String occupation_name;
 	
-//	private List<Viewer> viewerList;
+	private List<Viewer> viewerList;
 
 	public Occupation() {
 		
@@ -36,19 +36,24 @@ public class Occupation {
 		this.occupation_name = occupation_name;
 	}
 	
-//	
-//	public List<Viewer> getViewerList() {
-//		return viewerList;
-//	}
-//
-//	public void setViewerList(List<Viewer> viewerList) {
-//		this.viewerList = viewerList;
-//	}
+	
+	public List<Viewer> getViewerList() {
+		return viewerList;
+	}
+
+	public void setViewerList(List<Viewer> viewerList) {
+		this.viewerList = viewerList;
+	}
+	
+	public void addViewer(Viewer viewer) {
+		this.viewerList.add(viewer);
+	}
 
 
 	@Override
 	public String toString() {
-		return "Occupation [occupation_id=" + occupation_id + ", occupation_name=" + occupation_name + "]";
+		return "Occupation [occupation_id=" + occupation_id + ", occupation_name=" + occupation_name + ", viewerList="
+				+ viewerList + "]";
 	}
 
 	

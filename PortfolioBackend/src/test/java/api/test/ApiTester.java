@@ -7,6 +7,9 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+
+import jakarta.annotation.Priority;
+
 import org.apache.http.HttpStatus;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.methods.CloseableHttpResponse;
@@ -35,9 +38,10 @@ public class ApiTester {
     
     
     @Test
-    @Order(1)
+    @Priority(1)
     public void test_getViewerAll() 
       throws ClientProtocolException, IOException {
+    	
  
         HttpUriRequest request = new HttpGet(SERVICE_URL+"/getallviewer");
 
@@ -52,11 +56,11 @@ public class ApiTester {
     }
   
     @Test
-    @Order(2)
+    @Priority(2)
     public void test_getViewerById() 
       throws ClientProtocolException, IOException {
  
-        HttpUriRequest request = new HttpGet(SERVICE_URL+"/validateuser?id=66");
+        HttpUriRequest request = new HttpGet(SERVICE_URL+"/validateuser?id=74");
 
         CloseableHttpResponse httpResponse = HttpClientBuilder
           .create()
@@ -69,7 +73,7 @@ public class ApiTester {
     }
  
     @Test 
-    @Order(3)
+    @Priority(3)
     public void test_addNewAccount() throws ClientProtocolException, IOException {
     	DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
     
@@ -109,7 +113,7 @@ public class ApiTester {
     }
    
    @Test
-   @Order(4)
+   @Priority(4)
     public void test_updateViewerById() throws ClientProtocolException, IOException, URISyntaxException {
     	
     	URIBuilder builder = new URIBuilder(SERVICE_URL+"/updateexistingviewer?email=nasrin.jafari@powercoders.org&id=");
@@ -129,7 +133,7 @@ public class ApiTester {
     }
   
     @Test
-    @Order(5)
+    @Priority(5)
     public void test_deleteViewerById() throws ClientProtocolException, IOException, URISyntaxException {
     	URIBuilder builder = new URIBuilder(SERVICE_URL+"/deleteviewer?");
     	builder.setParameter("id",String.valueOf(newViewerId));
