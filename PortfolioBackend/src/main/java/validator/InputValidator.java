@@ -3,9 +3,11 @@ import java.time.LocalDate;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import exceptionManager.InvalidCredentialException;
+
 public class InputValidator {
 	public boolean passwordValidator(String password) {
-		String regex = "^[A-Z][a-zA-Z0-9!@#$%^&*()_+{}|:\"<>?`\\\\\\-=[\\\\];',.\\\\\\\\]{7,}$";
+		String regex = "^[A-Z][a-zA-Z0-9!@#$%^&*()_+{}|:\\\"<>?`=[\\\\];',.\\\\]{8,}$";
 ;
 ;
 		
@@ -35,7 +37,7 @@ public class InputValidator {
 		
 	}
 	
-	public  boolean validRange(LocalDate inputObject, LocalDate lowest, LocalDate highest) {
+	public  boolean validRange(LocalDate inputObject, LocalDate lowest, LocalDate highest) throws InvalidCredentialException {
 		return inputObject.isAfter(lowest) &&  inputObject.isBefore(highest == null ? LocalDate.now() : highest) ? true : false;
 	}
 	

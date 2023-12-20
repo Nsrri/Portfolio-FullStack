@@ -28,6 +28,7 @@ public class OccupationService implements IDao<Occupation> {
 				occupation.setOccupation_id(rs.getInt("occupation_id"));
 				occupation.setOccupation_name(rs.getString("occupation_name"));
 				occupation.setViewerList(viewerServ.extractViewerByOccupation(rs.getInt("occupation_id")));
+				
 		
 		}
 			ConnectionSingletone.closeConnection();		
@@ -116,6 +117,7 @@ public class OccupationService implements IDao<Occupation> {
 			ResultSet rs = selectOccupationWithId.executeQuery();
 			
 			while(rs.next()) {
+				ViewerService viewerServ = new ViewerService();
 				occupation = new Occupation();
 				occupation.setOccupation_id(rs.getInt("occupation_id"));
 				occupation.setOccupation_name(rs.getString("occupation_name"));
@@ -127,6 +129,8 @@ public class OccupationService implements IDao<Occupation> {
 		}
 		return  occupationList;
 	}
+	
+	
 	
 
 }

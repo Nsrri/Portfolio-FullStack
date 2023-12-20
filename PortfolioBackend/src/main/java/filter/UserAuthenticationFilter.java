@@ -85,7 +85,8 @@ public class UserAuthenticationFilter implements ContainerRequestFilter  {
 			if (rolesSet.contains(userRole)) {
 				isAllowed = true;
 			}
-		} else if (username.equals("viewer") && password.equals("Dela9090!")) {
+		} 
+		else if (username.equals("viewer") && password.equals("Dela9090!")) {
 			if (rolesSet.contains(userRole2)) {
 				isAllowed = true;
 			}

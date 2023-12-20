@@ -10,6 +10,8 @@ import java.util.ArrayList;
 import java.util.Base64;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+
+import exceptionManager.InvalidCredentialException;
 import jakarta.ws.rs.core.HttpHeaders;
 import org.apache.http.HttpStatus;
 import org.apache.http.client.ClientProtocolException;
@@ -95,7 +97,7 @@ public class ViewerApiTester {
     
  
     @Test 
-    public void test_addNewAccount() throws ClientProtocolException, IOException {
+    public void test_addNewAccount() throws ClientProtocolException, IOException, InvalidCredentialException {
     	DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
     	OccupationService occupationServ = new OccupationService();
     
@@ -135,11 +137,11 @@ public class ViewerApiTester {
     }
     
     @Test 
-    public void negativeTest_addNewAccount() throws ClientProtocolException, IOException {
+    public void negativeTest_addNewAccount() throws ClientProtocolException, IOException, InvalidCredentialException {
     	DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
     	OccupationService occupationServ = new OccupationService();
     
-    	Viewer viewer = new Viewer("Sebastian", "Mueller", LocalDate.parse("1997-01-01", dtf), "Male","Switzerland", "david.mueller@ubs.com","Dela9090!","Dela9090!", occupationServ.getById(100));
+    	Viewer viewer = new Viewer("Sebastian", "Mueller", LocalDate.parse("1997-01-01", dtf), "Male","Switzerland", "david.mueller@ubs.com","Dela9090!","Dela!9090", occupationServ.getById(900));
     
         //Converting the Object to JSONString
     	ObjectMapper mapper = new ObjectMapper();

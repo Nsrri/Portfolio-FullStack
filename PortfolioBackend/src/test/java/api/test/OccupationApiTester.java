@@ -131,7 +131,7 @@ public class OccupationApiTester {
     public void negativeTest_addNewOccupation() throws ClientProtocolException, IOException {
     	ViewerService viewer = new ViewerService();
     
-    	Occupation occupation = new Occupation( "cvs", viewer.extractViewerByOccupation(2) );
+    	Occupation occupation = new Occupation( "cvs", viewer.extractViewerByOccupation(800) );
     
         //Converting the Object to JSONString
     	ObjectMapper mapper = new ObjectMapper();

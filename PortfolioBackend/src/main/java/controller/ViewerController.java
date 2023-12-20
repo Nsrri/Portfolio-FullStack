@@ -38,7 +38,7 @@ public class ViewerController {
 	@Path("/validateuser")
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public Response validateRegisteredUser(@QueryParam ("id") int id, @QueryParam("email") String email) throws InvalidCredentialException {
+	public Response validateRegisteredUser(@QueryParam ("id") int id, @QueryParam("email") String email) throws InvalidCredentialException  {
 		Viewer viewer = null;
 		
 		// Check if the email address is valid and if the email of retrieved user is the same as client email
@@ -57,7 +57,7 @@ public class ViewerController {
 	
 	
 	// Get a list of all viewer
-	@RolesAllowed({"ADMIN"})
+	@RolesAllowed("ADMIN")
 	@Path("/allviewer")
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
@@ -84,6 +84,7 @@ public class ViewerController {
 		 // Check if the user Credentials are correct then insert new record
 		if(validator.emailValidator(viewer.getEmail()) 
 				&& validator.passwordValidator(viewer.getPassword())
+				&& validator.passwordValidator(viewer.getRetriever())
 				&& validator.validRange(viewer.getBirthdate(), LocalDate.of(1200, 01, 01),LocalDate.now())) {
 			status = viewService.addNewRecord(viewer);
 			logger.info( viewer == null ? "The new Record wasn't added" : "The new Recoid is added " + viewer.getViewerId());

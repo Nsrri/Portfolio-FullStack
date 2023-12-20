@@ -193,6 +193,7 @@ public  class ViewerService implements IDao<Viewer>{
 			
 			while(rs.next()) {
 				viewer = new Viewer();
+				OccupationService occupationServ = new OccupationService();
 				viewer.setViewerId(rs.getInt("viewer_id"));
 				viewer.setFirstname(rs.getString("firstname"));
 				viewer.setLastname(rs.getString("lastname"));
