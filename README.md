@@ -54,11 +54,23 @@ ERM Stands for 'Entity Relational Model'
 
 ### Last Word
 
+This Project was a learn project but it will be used as the backend for portfolio websit which I want to use it as my portfolio and  add my github repositories then share it in my socila media. There will be another version (1.0.0) of Portfolio-Backend soon, it will contain huge changes such as better database connection and better security.
+
 
 ### Used Technologies
 
+[Jersey]
+(https://docs.spring.io/spring-boot/docs/2.1.13.RELEASE/reference/html/howto-jersey.html)
+
+[Apache tomcat]
+(https://tomcat.apache.org/)https://tomcat.apache.org/)
+
+[Mysql]
+(https://tomcat.apache.org/)https://tomcat.apache.org/](https://www.mysql.com/)
+
 
 ### Author
+Nasrin Jafari
 
 
 
