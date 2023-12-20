@@ -79,7 +79,7 @@
       }
     },
     "/PortfolioBackend/resources/viewer/createnewaccount": {
-      "get": {
+      "post": {
         "operationId": "newviewer",
         "description": "",
         "parameters": [],
@@ -108,7 +108,7 @@
       }
     },
     "/PortfolioBackend/resources/viewer/updateexistingviewer": {
-      "get": {
+      "put": {
         "operationId": "updaterecord",
         "description": "",
         "parameters": 
@@ -152,7 +152,7 @@
       }
     },
     "/PortfolioBackend/resources/viewer/deleteviewer": {
-      "get": {
+      "delete": {
         "operationId": "deleterecord",
         "description": "",
         "parameters": [

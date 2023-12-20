@@ -73,7 +73,7 @@
       }
     },
     "/PortfolioBackend/resources/occupation/updateexistingoccupation": {
-      "get": {
+      "put": {
         "operationId": "updateoccupation",
         "description": "",
         "parameters": [
@@ -117,7 +117,7 @@
       }
     },
     "/PortfolioBackend/resources/occupation/createnewoccupation": {
-      "get": {
+      "post": {
         "operationId": "createnewoccupation",
         "description": "",
         "parameters": [],
@@ -146,7 +146,7 @@
       }
     },
     "/PortfolioBackend/resources/occupation/deleteoccupation": {
-      "get": {
+      "delete": {
         "operationId": "deleteoccupation",
         "description": "",
         "parameters": [
