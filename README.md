@@ -4,7 +4,7 @@
 
 ### Description
 
-The Portfolio-Backend is the backbone of the Portfolio-Fullstack project which is implemented as a maven dynamic web application, it lets viewer of the portfolio to create an account for themself to let the developer team to generate a static based on geographic location and occupation to make a better user experience.
+The Portfolio-Backend is the backbone of the Portfolio-Fullstack project which is implemented as a maven dynamic web application, it lets viewer of the portfolio to create an account for themselves to let the developer team to generate a static based on geographic location and occupation to make a better user experience.
 
 
 
