@@ -97,7 +97,7 @@ public class ViewerController {
  
 	}
 	
-	@RolesAllowed("VIEWER")
+	@RolesAllowed({"VIEWER", "ADMIN"})
 	@Path("/updateexistingviewer")
 	@PUT
 	public Response updateEmail(@QueryParam("email") String email, @QueryParam("id") int id) throws InvalidCredentialException {
@@ -112,7 +112,7 @@ public class ViewerController {
 				  : Response.status(Response.Status.OK).build();
  
 	}
-	@RolesAllowed({"ADMIN", "VIEWER"})
+	@RolesAllowed({"ADMIN"})
 	@Path("/deleteviewer")
 	@DELETE
 	public Response deleteViewer(@QueryParam("id") int id, @QueryParam("email") String email) throws InvalidCredentialException {
