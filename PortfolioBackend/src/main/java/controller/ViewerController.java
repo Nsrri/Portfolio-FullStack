@@ -142,7 +142,7 @@ public class ViewerController {
 		 logger.info("Viewer list size: " + viewer.size());
 		logger.info(viewer);
 		 // Check if user exists
-		return  viewer == null ? Response.status(Response.Status.NOT_FOUND).build() : Response.status(Response.Status.OK).entity(viewer).build();
+		return  viewer.size() == 0 ? Response.status(Response.Status.NOT_FOUND).build() : Response.status(Response.Status.OK).entity(viewer).build();
  
 	}
 	

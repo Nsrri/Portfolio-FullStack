@@ -252,6 +252,43 @@ public class ViewerApiTester {
           .getStatusCode());
     }
     
+    
+    
+    @Test
+    public void test_getOccupation() 
+      throws ClientProtocolException, IOException {
+ 
+        HttpUriRequest request = new HttpGet(SERVICE_URL+"/occupation?id=2");
+        authenticate(request, "admin" + ":" + "Jafari9090!");
+
+        CloseableHttpResponse httpResponse = HttpClientBuilder
+          .create()
+          .build()
+          .execute(request);
+
+        assertEquals(HttpStatus.SC_OK, httpResponse
+          .getStatusLine()
+          .getStatusCode());
+    }
+    
+    @Test
+    public void negativeTest_getOccupation() 
+      throws ClientProtocolException, IOException {
+ 
+        HttpUriRequest request = new HttpGet(SERVICE_URL+"/occupation?id=1000");
+        authenticate(request, "admin" + ":" + "Jafari9090!");
+
+        CloseableHttpResponse httpResponse = HttpClientBuilder
+          .create()
+          .build()
+          .execute(request);
+
+        assertEquals(HttpStatus.SC_NOT_FOUND, httpResponse
+          .getStatusLine()
+          .getStatusCode());
+    }
+    
+    
     public void authenticate(HttpUriRequest request, String auth) {
     	byte[] encodedAuth = Base64.getEncoder().encode(auth.getBytes(StandardCharsets.ISO_8859_1));
     	String authHeader = "Basic " + new String(encodedAuth);
