@@ -1,10 +1,11 @@
-# Portfolio
+# Portfolio-FullStack
 
 ## Portfolio-Backend 0.1.0
 
 ### Description
 
-The Portfolio-Backend is the backbone of the Portfolio-Fullstack project which is implemented as a maven dynamic web application, it lets viewer of the portfolio to create an account for themself to let the developer team to generate a static based on geographic location and occupation to make a better user experience.
+The Portfolio-Backend is the backbone of the Portfolio-Fullstack project which is implemented as a maven dynamic web application, The Http requests are implemented with the help of Spring-Jersey library and The server can be run on Apache Tomcat(10.1). The required JDK for this project is >= JDK 20 and the API is documented via OpenAPI.
+The aim of this project is to let viewer of the portfolio to create an account for themselves to let the developer team to generate a static based on geographic location and occupation to make a better user experience.
 
 
 
