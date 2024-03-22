@@ -1,0 +1,92 @@
+/* $radius is the parameter of the function */
+@-webkit-keyframes run {
+  0% {
+    left: 1%;
+  }
+  20% {
+    left: 5%;
+  }
+  100% {
+    left: 1%;
+  }
+}
+.gird-container {
+  background-color: #26262c;
+  padding-top: 100px;
+}
+
+.about-me {
+  margin-bottom: 10px;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 40px;
+  border-radius: 5px;
+  box-shadow: 2px 2px 2px 2px rgb(75, 76, 82);
+}
+.about-me .section-img-container .section-img {
+  width: 500px;
+  mix-blend-mode: lighten;
+}
+
+body {
+  font-family: "Poppins", Helvetica, sans-serif; /* variable usage */
+  background-color: #26262c;
+  padding: 2rem;
+  min-height: 100vh;
+  color: #e6e7e9;
+  /* using the mixins function */
+}
+
+.nav-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #495057;
+  opacity: 0.9;
+  padding: 10px;
+}
+.nav-container .nav-ul {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr 1fr 1fr;
+  list-style: none;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.nav-container .nav-ul a {
+  color: #e6e7e9;
+  text-decoration: none;
+}
+.nav-container .nav-ul a:hover {
+  color: #cce5ff;
+}
+.nav-container .nav-ul a:active {
+  color: #66b2ff;
+}
+
+.sub-logo {
+  text-transform: none !important;
+  color: #cce5ff;
+}
+
+.activity-bar {
+  display: table;
+  width: 85px;
+  height: 10px;
+  background-color: #cce5ff;
+  border-width: 10%;
+  border-radius: 5px;
+  bottom: 15%;
+  position: absolute;
+  -webkit-animation: both infinite;
+  -webkit-animation-name: run;
+  -webkit-animation-duration: 4s;
+}
+
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,64 @@
+@import "variables";
+@import "mixins";
+@import "gird-container";
+@import "section-layout";
+body {
+  font-family: $fonts; /* variable usage */
+  background-color: $background-dark;
+  padding: $spacing;
+  min-height: 100vh;
+  color: $color-dark;
+  /* using the mixins function */
+}
+
+.nav-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #495057;
+  opacity: 0.9;
+  padding: 10px;
+
+  .nav-ul {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr 1fr 1fr;
+    list-style: none;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+    a {
+      color: $color-dark;
+      text-decoration: none;
+    }
+    a:hover {
+      color: $theme-color;
+    }
+    a:active {
+      color: #66b2ff;
+    }
+  }
+
+}
+
+.sub-logo {
+    text-transform: none !important;
+    color: $theme-color;
+  }
+  .activity-bar {
+    display: table;
+    width: 85px;
+    height:10px ;
+    background-color: $theme-color;
+    border-width: 10%;
+    border-radius: 5px;
+    @include activity-bar-run
+
+  
+}
+
+
+

@@ -1,0 +1,14 @@
+.section-info {
+}
+.about-me {
+  margin-bottom: 10px; 
+  @include center-section();
+  @include section-frame();
+
+  .section-img-container {
+    .section-img {
+      width: 500px;
+      mix-blend-mode: $blend-image-dark;
+    }
+  }
+}
