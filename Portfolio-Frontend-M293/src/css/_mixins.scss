@@ -15,6 +15,7 @@
 @mixin section-frame {
   border-radius: 5px;
   box-shadow: 2px 2px 2px 2px rgb(75, 76, 82);
+  margin-bottom: 20px;
 }
 
 @mixin center-section {
@@ -27,22 +28,21 @@
 }
 
 @mixin activity-bar-run {
-    bottom: 15%;
-    position: absolute;
-    -webkit-animation:both infinite;
-    -webkit-animation-name: run ;
-        -webkit-animation-duration: 4s;
-      }
-      @-webkit-keyframes run {
-        0% {
-          left: 1%;
-        }
-        20% {
-          left: 5%;
-        }
-    
-        100% {
-          left: 1%;    
-        }
+  bottom: 15%;
+  position: absolute;
+  -webkit-animation: both infinite;
+  -webkit-animation-name: run;
+  -webkit-animation-duration: 4s;
+}
+@-webkit-keyframes run {
+  0% {
+    left: 1%;
+  }
+  20% {
+    left: 5%;
+  }
 
+  100% {
+    left: 1%;
+  }
 }

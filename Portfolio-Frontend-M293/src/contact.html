@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Portfolio</title>
+</head>
+<body>
+    <header>
+        <div>
+            <nav class="nav-container-sub">
+                <div class="Logo">
+                    <div class=" ">
+                        <h1 style="font-size: 2rem; font-weight: bold; text-transform: uppercase;"><a>Ns<span class="sub-logo">rri</span></a></h1>
+                        <div class="activity-bar"></div>
+                    </div>
+                </div>
+                <ul class="nav-ul-sub">
+                    <li><a href="./homepage.html">Home</a></li>
+                    <li><a href="./projects.html">Projects</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main class="gird-container">
+        <main class="gird-container">
+            <section class="contact-section">
+                <h2>Contact Me</h2>
+                <p>Feel free to get in touch with me using the form below:</p>
+                <form action="submit_contact_form.php" method="post">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" rows="4" required></textarea>
+                    <button type="submit">Send Message</button>
+                </form>
+            </section>
+        </main>
+    </main>
+    <footer>
+        <p>© 2024 My Media Collection. All rights reserved.</p>
+    </footer>
+</body>
+</html>

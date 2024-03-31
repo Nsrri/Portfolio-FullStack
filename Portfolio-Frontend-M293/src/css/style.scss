@@ -1,19 +1,26 @@
 @import "variables";
 @import "mixins";
-@import "gird-container";
+@import "gridContainer";
 @import "section-layout";
+@import "workItemSettings";
+@import "subscription";
+@import "aside";
+@import "filter";
+
 body {
   font-family: $fonts; /* variable usage */
   background-color: $background-dark;
   padding: $spacing;
   min-height: 100vh;
   color: $color-dark;
+  overflow-x: hidden;
+
   /* using the mixins function */
 }
 
 .nav-container {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   width: 100%;
   position: fixed;
   top: 0;
@@ -22,43 +29,49 @@ body {
   opacity: 0.9;
   padding: 10px;
 
+  @media (min-width: 768px) {
+
+    grid-template-columns: 2fr 1fr;
+  }
+
   .nav-ul {
-    display: grid;
-    grid-template-columns: 1.1fr 1fr 1fr 1fr;
+    display: flex;
     list-style: none;
     justify-content: center;
     align-items: center;
-    gap: 10px;
+    padding: 0;
+
+    li {
+      margin: 0 10px;
+    }
 
     a {
       color: $color-dark;
       text-decoration: none;
     }
+
     a:hover {
-      color: $theme-color;
-    }
-    a:active {
       color: #66b2ff;
     }
-  }
 
+    a:active {
+      color: #66b2ff; 
+    }
+  }
 }
 
 .sub-logo {
-    text-transform: none !important;
-    color: $theme-color;
-  }
-  .activity-bar {
-    display: table;
-    width: 85px;
-    height:10px ;
-    background-color: $theme-color;
-    border-width: 10%;
-    border-radius: 5px;
-    @include activity-bar-run
+  text-transform: none !important;
+  color: #66b2ff; 
+}
 
-  
+.activity-bar {
+  display: none;
 }
 
 
-
+footer {
+  color: #a5a5a5;
+  text-align: center;
+  padding: 10px;
+}

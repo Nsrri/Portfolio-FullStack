@@ -1,0 +1,55 @@
+@import "variables";
+
+.newsletter-section {
+  @include section-frame;
+  text-align: center;
+  padding: 10px;
+
+  h4 {
+    color: $color-dark;
+    padding-bottom: 20px;
+  }
+
+  small {
+    color: $color-dark;
+    margin-bottom: 20px;
+  }
+
+  form {
+    label {
+      color: $color-dark;
+      //   display: block;
+      margin-top: 5px;
+      margin-bottom: 5px;
+    }
+
+    input[type="email"] {
+      background-color: transparent;
+      color: $color-dark;
+      border: none;
+      border-bottom: 1px solid $color-dark;
+      width: calc(100% - 20px);
+      margin-right: 10px;
+      padding: 5px;
+      box-sizing: border-box;
+      &:focus {
+        outline: none;
+        border-color: $color-dark;
+      }
+    }
+
+    button[type="submit"] {
+      background-color: $background-dark;
+      color: $color-dark;
+      border: 1px solid $color-dark;
+      padding: 8px 16px;
+      cursor: pointer;
+      margin-top: 20px;
+      &:hover {
+        background-color: $background-light;
+        color: $color-light;
+        border: 1px solid $color-light;
+      }
+    }
+  }
+}

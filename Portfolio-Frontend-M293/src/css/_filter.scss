@@ -1,0 +1,36 @@
+@import "variables";
+.filter {
+  display: flex;
+  flex-direction: row;
+  width: 60%;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+.filter-item {
+  border: 1px solid $color-dark;
+  padding: 14px;
+  flex-wrap: nowrap;
+  border-radius: 5px;
+  margin: 0 5px;
+  width: 20%;
+  text-align: center;
+}
+
+.filter-item p {
+  margin: 0;
+}
+
+.filter-item:hover {
+  transition: border-color 0.3s ease;
+}
+
+.filter-item.active {
+  background-color: $background-light;
+  color: $color-light;
+}
+
+.filter-overview {
+  display: flex;
+  flex-direction: column;
+}
