@@ -36,19 +36,14 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-document.addEventListener("DOMContentLoaded", function () {
-  const images = document.querySelectorAll(".works");
-  images.forEach(function (image) {
-    image.addEventListener("click", function (event) {
-      event.preventDefault();
-
-      const projectId = image.parentElement.getAttribute("id");
-      if (projectId === "musicplayer") {
-        console.log(projectId);
-        const image = document.getElementsByClassName("project-image");
-        image.src = "../resources/musicplayer.png";
-        window.location.href = `./projectDetail.html`;
-      }
-    });
-  });
-});
+function openDetail(message, title, image) {
+  window.open(
+    "projectDetail.html?description=" +
+      encodeURIComponent(message) +
+      "&title=" +
+      encodeURIComponent(title) +
+      "&img=" +
+      encodeURIComponent(image),
+    "_blank"
+  );
+}

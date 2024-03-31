@@ -17,17 +17,17 @@
                     </div>
                 </div>
                 <ul class="nav-ul">
-                    <li><a href="./homepage.html">Projects</a></li>
+                    <li><a href="./projects.html">Projects</a></li>
                 </ul>
             </nav>
         </div>
     </header>
     <main class="gird-container">
         <section class="project-detail">
-                <img src="../resources/Dictinary.png" alt="dictionary mobile app" class="project-image"/>
+                <img  alt="dictionary mobile app" class="project-image" id="img-detail"/>
             <div class="project-description">
-                <h1>Dictionary</h1>
-                <p>This is an iOS mobile app which is implemented in swift, which serves multiple purposes</p>
+                <h1 id="title"></h1>
+                <p id="description"></p>
             </div>
             <aside class="appointment-section">
                 <h4>Subscribe to our Newsletter</h4>
@@ -46,6 +46,19 @@
 <footer>
     <p>© 2024 My Media Collection. All rights reserved.</p>
 </footer>
-<script src="./scripts.js"></script>
+<script>
+    const params = new URLSearchParams(window.location.search);
+    const description = params.get('description');
+    const image = params.get('img');
+    const title = params.get('title');
+
+    const descriptionElement = document.getElementById("description");
+    const titleElement = document.getElementById("title");
+    const imageElement = document.getElementById("img-detail");
+
+    descriptionElement.textContent = description;
+    titleElement.textContent = title;
+    imageElement.src = image;
+</script>
 </body>
 </html>
