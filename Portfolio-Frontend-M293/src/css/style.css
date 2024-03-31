@@ -54,6 +54,7 @@
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+  gap: 20px;
 }
 
 .categorey {
@@ -238,6 +239,71 @@
 .filter-overview {
   display: flex;
   flex-direction: column;
+}
+
+.project-detail {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-content: center;
+  border-radius: 5px;
+  box-shadow: 2px 2px 2px 2px rgb(75, 76, 82);
+  margin-bottom: 20px;
+  padding: 10px;
+}
+.project-detail .project-image {
+  width: 27rem;
+  height: 20rem;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgb(184, 184, 184);
+  object-fit: cover;
+  margin: 20px;
+}
+.project-detail .appointment-section {
+  text-align: center;
+  padding: 20px;
+  border-radius: 10px; /* Add rounded corners */
+}
+.project-detail .appointment-section h4 {
+  color: #e6e7e9;
+  font-size: 1.5rem; /* Increase font size */
+  margin-bottom: 10px;
+}
+.project-detail .appointment-section small {
+  color: #e6e7e9;
+  font-size: 0.9rem; /* Adjust font size */
+  margin-bottom: 15px;
+  display: block; /* Separate from the form */
+}
+.project-detail .appointment-section form {
+  max-width: 300px; /* Limit form width */
+  margin: 0 auto; /* Center the form */
+}
+.project-detail .appointment-section form label {
+  display: block;
+  text-align: left; /* Align labels to the left */
+  margin-bottom: 5px;
+}
+.project-detail .appointment-section form input[type=email],
+.project-detail .appointment-section form input[type=date] {
+  color: hsl(218, 92%, 5%);
+  border: 1px solid #e6e7e9;
+  border-radius: 5px;
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+}
+.project-detail .appointment-section form button[type=submit] {
+  color: #e6e7e9;
+  border: 1px solid #e6e7e9;
+  background-color: #26262c;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+.project-detail .appointment-section form button[type=submit]:hover {
+  color: hsl(218, 92%, 5%);
+  background-color: #f8f9fa;
 }
 
 body {

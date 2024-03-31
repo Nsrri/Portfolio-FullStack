@@ -6,7 +6,7 @@
 @import "subscription";
 @import "aside";
 @import "filter";
-
+@import "detail";
 body {
   font-family: $fonts; /* variable usage */
   background-color: $background-dark;
@@ -30,7 +30,6 @@ body {
   padding: 10px;
 
   @media (min-width: 768px) {
-
     grid-template-columns: 2fr 1fr;
   }
 
@@ -55,20 +54,19 @@ body {
     }
 
     a:active {
-      color: #66b2ff; 
+      color: #66b2ff;
     }
   }
 }
 
 .sub-logo {
   text-transform: none !important;
-  color: #66b2ff; 
+  color: #66b2ff;
 }
 
 .activity-bar {
   display: none;
 }
-
 
 footer {
   color: #a5a5a5;

@@ -35,3 +35,8 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+
+
+function showDetails() {
+    const item = document.querySelector(".")
+}
