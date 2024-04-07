@@ -37,25 +37,25 @@
 }
 @media screen and (max-width: 1024px) {
   .filter-item {
-    max-width: 25%; /* Reduce maximum width for medium screens */
+    max-width: 25%; 
   }
 }
 
-/* Adjustments for small-sized screens */
+
 @media screen and (max-width: 767px) {
   .filter {
     width: 100%;
     flex-wrap: wrap;
   }
   .filter-item {
-    width: 100%; /* Reduce maximum width for small screens */
+    width: 100%; 
     margin: 5px;
   }
 }
 
-/* Adjustments for extra small-sized screens */
+
 @media screen and (max-width: 480px) {
   .filter-item {
-    max-width: 50%; /* Reduce maximum width for extra small screens */
+    max-width: 50%; 
   }
 }

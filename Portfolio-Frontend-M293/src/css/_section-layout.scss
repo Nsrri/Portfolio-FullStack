@@ -8,8 +8,8 @@
   }
 
   .section-img {
-    width: 100%; /* Adjust image width to be responsive */
-    max-width: 500px; /* Limit maximum width */
+    width: 100%;
+    max-width: 500px; 
     mix-blend-mode: $blend-image-dark;
   }
 }
@@ -17,11 +17,11 @@
 /* Adjust font sizes for smaller screens */
 @media screen and (max-width: 767px) {
   .work-section-h2 {
-    font-size: 1.5rem; /* Reduce font size for section heading */
+    font-size: 1.5rem;
   }
 }
 
-/* Adjust layout for medium screens */
+
 @media screen and (min-width: 768px) and (max-width: 1024px) {
   .work-section .works {
     flex: 0 1 calc(50% - 10px);

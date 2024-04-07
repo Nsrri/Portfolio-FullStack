@@ -20,18 +20,17 @@
   text-align: center; /* Center the image horizontally */
 }
 .about-me .section-img {
-  width: 100%; /* Adjust image width to be responsive */
-  max-width: 500px; /* Limit maximum width */
+  width: 100%;
+  max-width: 500px;
   mix-blend-mode: lighten;
 }
 
 /* Adjust font sizes for smaller screens */
 @media screen and (max-width: 767px) {
   .work-section-h2 {
-    font-size: 1.5rem; /* Reduce font size for section heading */
+    font-size: 1.5rem;
   }
 }
-/* Adjust layout for medium screens */
 @media screen and (min-width: 768px) and (max-width: 1024px) {
   .work-section .works {
     flex: 0 1 calc(50% - 10px);
@@ -213,7 +212,6 @@
   text-align: justify-all;
 }
 
-/* Adjust grid layout for different screen sizes */
 @media screen and (min-width: 1062px) and (max-width: 1407px) {
   .work-section .works {
     flex: 0 1 calc(33.33% - 10px);
@@ -359,24 +357,22 @@
 
 @media screen and (max-width: 1024px) {
   .filter-item {
-    max-width: 25%; /* Reduce maximum width for medium screens */
+    max-width: 25%;
   }
 }
-/* Adjustments for small-sized screens */
 @media screen and (max-width: 767px) {
   .filter {
     width: 100%;
     flex-wrap: wrap;
   }
   .filter-item {
-    width: 100%; /* Reduce maximum width for small screens */
+    width: 100%;
     margin: 5px;
   }
 }
-/* Adjustments for extra small-sized screens */
 @media screen and (max-width: 480px) {
   .filter-item {
-    max-width: 50%; /* Reduce maximum width for extra small screens */
+    max-width: 50%;
   }
 }
 .project-detail {
@@ -389,17 +385,17 @@
   margin-bottom: 20px;
   padding: 10px;
   width: 90;
-  margin: 0 auto; /* Center the project detail section */
+  margin: 0 auto;
 }
 
 .project-image {
   width: 100%;
-  max-width: 100%; /* Ensure the image doesn't exceed its container */
-  height: auto; /* Maintain aspect ratio */
+  max-width: 100%;
+  height: auto;
   border-radius: 5px;
   box-shadow: 0 4px 8px rgb(184, 184, 184);
   object-fit: cover;
-  margin: 20px auto; /* Center the image */
+  margin: 20px auto;
 }
 
 .project-description {
@@ -410,8 +406,8 @@
   text-align: center;
   padding: 20px;
   border-radius: 10px;
-  margin: 20px auto; /* Center the appointment section */
-  max-width: 300px; /* Limit the width on smaller screens */
+  margin: 20px auto;
+  max-width: 300px;
 }
 
 .appointment-section-title {
@@ -428,7 +424,7 @@
 }
 
 .appointment-section-form {
-  margin: 0 auto; /* Center the form */
+  margin: 0 auto;
 }
 
 .appointment-section-form-label {
@@ -474,7 +470,7 @@
 
 @media screen and (max-width: 1061px) {
   .project-detail {
-    grid-template-columns: 1fr; /* Adjust to single column layout */
+    grid-template-columns: 1fr;
   }
 }
 .contact-section {

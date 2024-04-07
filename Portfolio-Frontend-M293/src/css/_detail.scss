@@ -8,17 +8,17 @@
   @include section-frame;
   padding: 10px;
   width: 90;
-  margin: 0 auto; /* Center the project detail section */
+  margin: 0 auto;
 }
 
 .project-image {
   width: 100%;
-  max-width: 100%; /* Ensure the image doesn't exceed its container */
-  height: auto; /* Maintain aspect ratio */
+  max-width: 100%; 
+  height: auto; 
   border-radius: 5px;
   box-shadow: 0 4px 8px rgb(184, 184, 184);
   object-fit: cover;
-  margin: 20px auto; /* Center the image */
+  margin: 20px auto;
 }
 .project-description {
   margin-left: 15px;
@@ -28,8 +28,8 @@
   text-align: center;
   padding: 20px;
   border-radius: 10px;
-  margin: 20px auto; /* Center the appointment section */
-  max-width: 300px; /* Limit the width on smaller screens */
+  margin: 20px auto; 
+  max-width: 300px; 
 }
 
 .appointment-section-title {
@@ -46,7 +46,7 @@
 }
 
 .appointment-section-form {
-  margin: 0 auto; /* Center the form */
+  margin: 0 auto; 
 }
 
 .appointment-section-form-label {
@@ -91,6 +91,6 @@
 
 @media screen and (max-width: 1061px) {
   .project-detail {
-    grid-template-columns: 1fr; /* Adjust to single column layout */
+    grid-template-columns: 1fr; 
   }
 }
