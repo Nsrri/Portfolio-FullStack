@@ -1,0 +1,61 @@
+.contact-section {
+  @include section-frame;
+  text-align: center;
+  padding: 10px;
+  height: 100%;
+  justify-content: center;
+  margin-top: 20px;
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .contact-form-button[type="submit"] {
+      @include submitButton-design;
+    }
+
+    .contact-form-fields {
+      display: flex;
+      flex-direction: column;
+      width: 60%;
+      justify-content: center;
+      align-items: flex-start;
+      margin-bottom: 20px;
+
+      // .contact-form-fields-label {
+      //   width: auto;
+      //   margin-right: 10px;
+      // }
+
+      .contact-form-fields-input {
+        width: 100%;
+        background-color: transparent;
+        border: 1px solid $color-dark;
+        border-radius: 5px;
+        height: $input-height;
+        margin-top: 10px;
+        padding: 5px;
+        color: $color-dark;
+        font-size: $input-fontsize;
+        &:focus {
+          box-shadow: 0 4px 8px rgb(240, 248, 248);
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 839px) {
+  .contact-section {
+    margin-top: 50px;
+  }
+  .contact-form-fields-input {
+    width: 100%;
+    border-radius: 2px;
+    height: 10%;
+    margin-top: 10px;
+    padding: 5px;
+    color: $color-dark;
+    font-size: $input-fontsize;
+  }
+}

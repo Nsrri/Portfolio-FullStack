@@ -27,22 +27,18 @@
   padding: 40px;
 }
 
-@mixin activity-bar-run {
-  bottom: 15%;
-  position: absolute;
-  -webkit-animation: both infinite;
-  -webkit-animation-name: run;
-  -webkit-animation-duration: 4s;
-}
-@-webkit-keyframes run {
-  0% {
-    left: 1%;
-  }
-  20% {
-    left: 5%;
-  }
+@mixin submitButton-design {
+  background-color: $background-dark;
+  color: $color-dark;
+  border: 1px solid $color-dark;
+  border-radius: 4px;
+  padding: 13px 16px;
 
-  100% {
-    left: 1%;
+  cursor: pointer;
+  margin-top: 20px;
+  &:hover {
+    background-color: $background-light;
+    color: $color-light;
+    border: 1px solid $color-light;
   }
 }

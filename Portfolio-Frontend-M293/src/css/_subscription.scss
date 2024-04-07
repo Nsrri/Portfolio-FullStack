@@ -2,4 +2,12 @@
   display: grid;
   grid-template-columns: 4fr 1fr;
   gap: 20px;
+  align-self: center;
+}
+
+@media screen and (max-width: 839px) {
+  .section-subscription {
+    display: flex;
+    flex-direction: column;
+  }
 }

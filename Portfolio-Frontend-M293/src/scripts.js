@@ -36,6 +36,21 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+
+const params = new URLSearchParams(window.location.search);
+const description = params.get('description');
+const image = params.get('img');
+const title = params.get('title');
+
+const descriptionElement = document.getElementById("description");
+const titleElement = document.getElementById("title");
+const imageElement = document.getElementById("img-detail");
+
+descriptionElement.textContent = description;
+titleElement.textContent = title;
+imageElement.src = image;
+
+
 function openDetail(message, title, image) {
   window.open(
     "projectDetail.html?description=" +
@@ -47,3 +62,6 @@ function openDetail(message, title, image) {
     "_blank"
   );
 }
+
+
+

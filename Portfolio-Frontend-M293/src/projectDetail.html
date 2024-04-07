@@ -11,13 +11,13 @@
         <div>
             <nav class="nav-container">
                 <div class="Logo">
-                    <div class=" ">
-                        <h1 style="font-size: 2rem; font-weight: bold; text-transform: uppercase;"><a>Ns<span class="sub-logo">rri</span></a></h1>
+                    <div>
+                        <h1 class="logo-h1"><a>Ns<span class="sub-logo">rri</span></a></h1>
                         <div class="activity-bar"></div>
                     </div>
                 </div>
-                <ul class="nav-ul">
-                    <li><a href="./projects.html">Projects</a></li>
+                <ul class="header-nav-ul">
+                    <li class="header-nav-li"><a class="header-nav-li-a" href="./projects.html">Projects</a></li>
                 </ul>
             </nav>
         </div>
@@ -30,35 +30,22 @@
                 <p id="description"></p>
             </div>
             <aside class="appointment-section">
-                <h4>Subscribe to our Newsletter</h4>
-                <small>Book an appointment for consultation</small>
-                <form action="{}" method="post">
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" required>
-                    <label for="email">Date:</label>
-                    <input type="date" id="calendar" name="calendar">
-                    <button type="submit">Subscribe</button>
+                <h4 class="appointment-section-title">Subscribe to our Newsletter</h4>
+                <small class="appointment-section-subtitle">Book an appointment for consultation</small>
+                <form class="appointment-section-form" action="{}" method="post">
+                    <label class="appointment-section-form-lable" for="email">Email:</label>
+                    <input class="appointment-section-form-input" type="email" id="email" name="email" required>
+                    <label class="appointment-section-form-lable" for="email">Date:</label>
+                    <input class="appointment-section-form-input" type="date" id="calendar" name="calendar">
+                    <button class="appointment-section-form-button" type="submit">Subscribe</button>
                 </form>
             </aside>
         </section>
     </section>
 </main>
-<footer>
+<footer class="footer">
     <p>© 2024 My Media Collection. All rights reserved.</p>
 </footer>
-<script>
-    const params = new URLSearchParams(window.location.search);
-    const description = params.get('description');
-    const image = params.get('img');
-    const title = params.get('title');
-
-    const descriptionElement = document.getElementById("description");
-    const titleElement = document.getElementById("title");
-    const imageElement = document.getElementById("img-detail");
-
-    descriptionElement.textContent = description;
-    titleElement.textContent = title;
-    imageElement.src = image;
-</script>
+<script src="scripts.js"></script>
 </body>
 </html>

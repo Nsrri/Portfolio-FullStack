@@ -2,6 +2,7 @@
 .filter {
   display: flex;
   flex-direction: row;
+
   width: 60%;
   justify-content: space-around;
   margin-bottom: 20px;
@@ -17,7 +18,7 @@
   text-align: center;
 }
 
-.filter-item p {
+.filter-item-p {
   margin: 0;
 }
 
@@ -33,4 +34,28 @@
 .filter-overview {
   display: flex;
   flex-direction: column;
+}
+@media screen and (max-width: 1024px) {
+  .filter-item {
+    max-width: 25%; /* Reduce maximum width for medium screens */
+  }
+}
+
+/* Adjustments for small-sized screens */
+@media screen and (max-width: 767px) {
+  .filter {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+  .filter-item {
+    width: 100%; /* Reduce maximum width for small screens */
+    margin: 5px;
+  }
+}
+
+/* Adjustments for extra small-sized screens */
+@media screen and (max-width: 480px) {
+  .filter-item {
+    max-width: 50%; /* Reduce maximum width for extra small screens */
+  }
 }
