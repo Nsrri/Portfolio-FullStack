@@ -246,6 +246,8 @@
   .section-subscription {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
 }
 .newsletter-section {
@@ -386,48 +388,59 @@
   box-shadow: 2px 2px 2px 2px rgb(75, 76, 82);
   margin-bottom: 20px;
   padding: 10px;
-  width: 90%;
-  height: 100%;
+  width: 90;
+  margin: 0 auto; /* Center the project detail section */
 }
-.project-detail .project-image {
-  width: 27rem;
-  height: 20rem;
+
+.project-image {
+  width: 100%;
+  max-width: 100%; /* Ensure the image doesn't exceed its container */
+  height: auto; /* Maintain aspect ratio */
   border-radius: 5px;
   box-shadow: 0 4px 8px rgb(184, 184, 184);
   object-fit: cover;
-  margin: 20px;
+  margin: 20px auto; /* Center the image */
 }
-.project-detail .appointment-section {
+
+.project-description {
+  margin-left: 15px;
+}
+
+.appointment-section {
   text-align: center;
   padding: 20px;
   border-radius: 10px;
-  height: 100%;
+  margin: 20px auto; /* Center the appointment section */
+  max-width: 300px; /* Limit the width on smaller screens */
 }
-.project-detail .appointment-section .appointment-section-title {
+
+.appointment-section-title {
   color: #e6e7e9;
   font-size: 1.5rem;
   margin-bottom: 10px;
 }
-.project-detail .appointment-section .appointment-section-subtitle {
+
+.appointment-section-subtitle {
   color: #e6e7e9;
   font-size: 0.9rem;
   margin-bottom: 15px;
   display: block;
 }
-.project-detail .appointment-section .appointment-section-form {
-  max-width: 300px;
-  margin: 0 auto;
+
+.appointment-section-form {
+  margin: 0 auto; /* Center the form */
 }
-.project-detail .appointment-section .appointment-section-form .appointment-section-form-lable {
+
+.appointment-section-form-label {
   display: block;
   text-align: left;
   margin-bottom: 5px;
   padding-bottom: 10px;
 }
-.project-detail .appointment-section .appointment-section-form .appointment-section-form-input[type=email],
-.project-detail .appointment-section .appointment-section-form .appointment-section-form-input[type=date] {
+
+.appointment-section-form-input[type=email],
+.appointment-section-form-input[type=date] {
   color: #e6e7e9;
-  color-scheme: #e6e7e9;
   border: 1px solid #e6e7e9;
   background-color: transparent;
   border-radius: 5px;
@@ -436,14 +449,16 @@
   margin-bottom: 10px;
   box-sizing: border-box;
 }
-.project-detail .appointment-section .appointment-section-form .appointment-section-form-input[type=email]:focus,
-.project-detail .appointment-section .appointment-section-form .appointment-section-form-input[type=date]:focus {
+.appointment-section-form-input[type=email]:focus,
+.appointment-section-form-input[type=date]:focus {
   box-shadow: 0 4px 8px rgb(240, 248, 248);
 }
-.project-detail .appointment-section .appointment-section-form .appointment-section-form-input[type=date]::-webkit-calendar-picker-indicator {
+
+.appointment-section-form-input[type=date]::-webkit-calendar-picker-indicator {
   filter: invert(99%);
 }
-.project-detail .appointment-section .appointment-section-form .appointment-section-form-button[type=submit] {
+
+.appointment-section-form-button[type=submit] {
   color: #e6e7e9;
   border: 1px solid #e6e7e9;
   background-color: #26262c;
@@ -451,33 +466,15 @@
   padding: 10px 20px;
   cursor: pointer;
 }
-.project-detail .appointment-section .appointment-section-form .appointment-section-form-button[type=submit]:hover {
+
+.appointment-section-form-button[type=submit]:hover {
   color: hsl(218, 92%, 5%);
   background-color: #f8f9fa;
 }
 
 @media screen and (max-width: 1061px) {
   .project-detail {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 10px;
-  }
-  .project-image {
-    width: 100%;
-    max-width: 90%;
-  }
-  .appointment-section {
-    width: 100%;
-    max-width: 90%;
-  }
-}
-@media screen and (max-width: 650px) {
-  .project-detail .project-image {
-    width: 300px;
-    height: 300px;
+    grid-template-columns: 1fr; /* Adjust to single column layout */
   }
 }
 .contact-section {
