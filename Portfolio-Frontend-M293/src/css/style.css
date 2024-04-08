@@ -524,21 +524,15 @@
 .contact-section .contact-form .contact-form-fields .contact-form-fields-input:focus {
   box-shadow: 0 4px 8px rgb(240, 248, 248);
 }
-
 @media screen and (max-width: 839px) {
   .contact-section {
     margin-top: 50px;
   }
-  .contact-form-fields-input {
+  .contact-section .contact-form-fields {
     width: 100%;
-    border-radius: 2px;
-    height: 10%;
-    margin-top: 10px;
-    padding: 5px;
-    color: #e6e7e9;
-    font-size: 0.8rem;
   }
 }
+
 body {
   font-family: "Poppins", Helvetica, sans-serif; /* variable usage */
   background-color: #26262c;
