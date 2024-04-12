@@ -18,29 +18,50 @@
                 </div>
                 <ul class="header-nav-ul">
                     <li class="header-nav-li"><a class="header-nav-li-a" href="./homepage.html">Home</a></li>
-                    <li class="header-nav-li"><a  class="header-nav-li-a"  href="./projects.html">Projects</a></li>
+                    <li class="header-nav-li"><a class="header-nav-li-a" href="./projects.html">Projects</a></li>
                 </ul>
             </nav>
         </div>
     </header>
-    <main class="gird-container">
+    <main class="grid-container">
+        <section class="info-section-contact">
+            <article class="aboutTeam">
+                <div class="aboutTeam-text">
+                    <small class="aboutTeam-small">Hi, my name is</small>
+                    <h2 class="aboutTeam-header" >Nasrin Jafari.</h2>
+                    <p class="aboutTeam-paraghraph">Welcome to my software engineering portfolio! I am a dedicated<br>and enthusiastic software engineer with a passion for learning and<br>a strong foundation in computer science principles. Despite being<br>at the beginning of my career journey, I am eager to contribute to<br>innovative projects and grow as a professional in the field.</p>
+                </div>
+                <div class="section-img-container-contact">
+                    <img src="../resources/female-dev.png" alt="The image of the owner of the website"  class="section-img-contact"/>
+                </div>
+            </article>   
+        </section> 
         <section class="contact-section">
             <h2>Contact Me</h2>
             <p>Feel free to get in touch with me using the form below:</p>
             <form action="submit_contact_form.php" method="post" class="contact-form">
                 <div class="contact-form-fields">
-                    <label for="name" class="contact-form-fields-lable">Name:</label>
-                    <input  class="contact-form-fields-input" type="text" id="name" name="name" required>
+                    <label for="name" class="contact-form-fields-label">Name:</label> 
+                    <input class="contact-form-fields-input" type="text" id="name" name="name" required>
                 </div>
                 <div class="contact-form-fields">
-                    <label for="email" class="contact-form-fields-lable">Email:</label>
+                    <label for="email" class="contact-form-fields-label">Email:</label>
                     <input class="contact-form-fields-input" type="email" id="email" name="email" required>
                 </div>
                 <div class="contact-form-fields">
-                    <label class="contact-form-fields-lable" for="message" class="contact-form-fields-lable">Message:</label>
+                    <label for="subject" class="contact-form-fields-label">Subject:</label> 
+                    <select class="contact-form-fields-input" id="subject" name="subject" required> 
+                        <option value="" disabled selected>Select Subject</option>
+                        <option value="General Inquiry">General Inquiry</option>
+                        <option value="Project Inquiry">Project Inquiry</option>
+                        <option value="Feedback">Feedback</option>
+                    </select>
+                </div>
+                <div class="contact-form-fields">
+                    <label for="message" class="contact-form-fields-label">Message:</label>
                     <textarea class="contact-form-fields-input" id="message" name="message" rows="4" required></textarea>
                 </div>
-                    <button class="contact-form-button" type="submit">Send Message</button>
+                <button class="contact-form-button" type="submit">Send Message</button>
             </form>
         </section>
     </main>

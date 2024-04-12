@@ -7,14 +7,13 @@
   align-items: center;
   @include section-frame;
   padding: 10px;
-  width: 90;
+  width: 90%;
   margin: 0 auto;
 }
 
 .project-image {
   width: 100%;
-  max-width: 100%; 
-  height: auto; 
+  height: auto;
   border-radius: 5px;
   box-shadow: 0 4px 8px rgb(184, 184, 184);
   object-fit: cover;
@@ -28,8 +27,8 @@
   text-align: center;
   padding: 20px;
   border-radius: 10px;
-  margin: 20px auto; 
-  max-width: 300px; 
+  margin: 20px auto;
+  max-width: 300px;
 }
 
 .appointment-section-title {
@@ -46,7 +45,7 @@
 }
 
 .appointment-section-form {
-  margin: 0 auto; 
+  margin: 0 auto;
 }
 
 .appointment-section-form-label {
@@ -91,6 +90,66 @@
 
 @media screen and (max-width: 1061px) {
   .project-detail {
-    grid-template-columns: 1fr; 
+    grid-template-columns: 1fr;
+  }
+
+  .project-description {
+    margin-left: 0;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .project-description {
+    font-size: 0.9rem;
+  }
+
+  .appointment-section-title {
+    font-size: 1.3rem;
+  }
+
+  .appointment-section-subtitle {
+    font-size: 0.8rem;
+  }
+
+  .appointment-section-form-label {
+    font-size: 0.8rem;
+  }
+
+  .appointment-section-form-input[type="email"],
+  .appointment-section-form-input[type="date"] {
+    font-size: 0.8rem;
+  }
+
+  .appointment-section-form-button[type="submit"] {
+    font-size: 0.9rem;
+    padding: 8px 16px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .project-description {
+    font-size: 0.8rem;
+  }
+
+  .appointment-section-title {
+    font-size: 1.1rem;
+  }
+
+  .appointment-section-subtitle {
+    font-size: 0.7rem;
+  }
+
+  .appointment-section-form-label {
+    font-size: 0.7rem;
+  }
+
+  .appointment-section-form-input[type="email"],
+  .appointment-section-form-input[type="date"] {
+    font-size: 0.7rem;
+  }
+
+  .appointment-section-form-button[type="submit"] {
+    font-size: 0.8rem;
+    padding: 6px 12px;
   }
 }

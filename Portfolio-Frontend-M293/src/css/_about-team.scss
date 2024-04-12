@@ -1,0 +1,76 @@
+.aboutTeam {
+  margin-bottom: 10px;
+  @include center-section();
+  @include section-frame();
+
+  .section-img-container {
+    text-align: center; /* Center the image horizontally */
+  }
+
+  .section-img-contact {
+    width: 100%;
+    max-width: 500px;
+    mix-blend-mode: $blend-image-dark;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .section-img-container-contact {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .about-me {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .aboutTeam-paraghraph,
+  .aboutme-small {
+    font-size: 1rem;
+  }
+  .aboutTeam-header {
+    font-size: 1.8rem;
+  }
+
+  /* Adjust image */
+  .section-img-contact {
+    max-width: 100%;
+  }
+}
+
+/* Adjust layout for smaller screens */
+@media screen and (max-width: 767px) {
+  .aboutTeam {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .section-img-container-contact {
+    width: 100%;
+    justify-content: center;
+  }
+  .section-img-contact {
+    max-width: 100%;
+  }
+  .aboutTeam-paraghraph {
+    font-size: 0.8rem;
+  }
+  .aboutTeam-small {
+    font-size: 0.5rem;
+  }
+  .aboutTeam-header {
+    font-size: 0.99rem;
+  }
+}
+
+@media screen and (max-width: 653px) and (min-height: 280px) {
+  .aboutTeam-text {
+    // width: 100%;
+  }
+  .aboutTeam-paraghraph,
+  .aboutTeam-small {
+    font-size: 0.6rem;
+    text-align: left;
+  }
+}

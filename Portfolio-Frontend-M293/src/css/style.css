@@ -4,6 +4,10 @@
   padding-top: 100px;
 }
 
+.info-section {
+  width: 100%;
+}
+
 .about-me {
   margin-bottom: 10px;
   display: grid;
@@ -25,13 +29,7 @@
   mix-blend-mode: lighten;
 }
 
-/* Adjust font sizes for smaller screens */
-@media screen and (max-width: 767px) {
-  .work-section-h2 {
-    font-size: 1.5rem;
-  }
-}
-@media screen and (min-width: 768px) and (max-width: 1024px) {
+@media screen and (min-width: 768px) and (max-width: 1023px) {
   .work-section .works {
     flex: 0 1 calc(50% - 10px);
   }
@@ -45,21 +43,16 @@
   .about-me {
     display: flex;
     flex-direction: column;
+    margin-top: 50px;
   }
   /* Adjust font sizes */
   .work-section-h2,
-  .category-header {
-    font-size: 1.8rem;
-  }
-  .skill-item-h3 {
-    font-size: 1rem;
-  }
+  .category-header,
+  .skill-item-h3,
   .aboutme-paraghraph,
-  .aboutme-small {
-    font-size: 1rem;
-  }
+  .aboutme-small,
   .aboutme-header {
-    font-size: 1.8rem;
+    font-size: 1rem;
   }
   /* Adjust image */
   .section-img {
@@ -93,9 +86,6 @@
   .section-img {
     max-width: 100%;
   }
-  .aboutme-paraghraph {
-    font-size: 0.8rem;
-  }
   .aboutme-small {
     font-size: 0.5rem;
   }
@@ -115,11 +105,50 @@
     width: 100%;
   }
 }
-@media screen and (max-width: 653px) and (min-height: 280px) {
-  .aboutme-paraghraph,
-  .aboutme-small {
+@media screen and (max-width: 683px) and (min-width: 639px) {
+  .aboutme-text {
     font-size: 0.6rem;
-    text-align: left;
+  }
+}
+@media screen and (max-width: 766px) and (min-height: 629px) {
+  .aboutme-text {
+    font-size: 0.7rem;
+  }
+  .about-me {
+    padding: 15px;
+  }
+  footer {
+    font-size: 0.9rem;
+  }
+}
+@media screen and (max-width: 628px) and (min-height: 449px) {
+  .aboutme-text {
+    font-size: 0.6rem;
+  }
+  .about-me {
+    padding: 15px;
+  }
+  footer {
+    font-size: 0.9rem;
+  }
+}
+@media screen and (max-width: 448px) and (min-height: 321px) {
+  .aboutme-text {
+    font-size: 0.6rem;
+  }
+  .about-me {
+    padding: 15px;
+  }
+  footer {
+    font-size: 0.9rem;
+  }
+}
+@media screen and (max-width: 395px) {
+  .aboutme-text {
+    font-size: 0.4rem;
+  }
+  .about-me {
+    padding: 10px;
   }
   footer {
     font-size: 0.9rem;
@@ -297,23 +326,40 @@
   border: 1px solid hsl(218, 92%, 5%);
 }
 
-@media screen and (min-width: 667px) and (max-width: 1024px) {
+@media screen and (min-width: 804px) and (max-width: 1024px) {
   .newsletter-section-title {
-    font-size: 2rem;
+    font-size: 1.1rem;
   }
   .newsletter-section-subtitle {
-    font-size: 1.2rem;
+    font-size: 1rem;
   }
   .newsletter-section-form-label {
-    font-size: 1.5rem;
+    font-size: 1rem;
   }
 }
-@media screen and (max-width: 600px) {
+@media screen and (min-width: 653px) and (max-width: 804px) {
+  .newsletter-section {
+    max-width: 100%;
+  }
   .newsletter-section-title {
-    font-size: 0.9rem;
+    font-size: 1rem;
   }
   .newsletter-section-subtitle {
-    font-size: 0.8rem;
+    font-size: 1rem;
+  }
+  .newsletter-section-form-label {
+    font-size: 1rem;
+  }
+}
+@media screen and (max-width: 653px) {
+  .newsletter-section {
+    max-width: 100%;
+  }
+  .newsletter-section-title {
+    font-size: 1rem;
+  }
+  .newsletter-section-subtitle {
+    font-size: 0.98rem;
   }
   .newsletter-section-form-label {
     font-size: 0.8rem;
@@ -384,13 +430,12 @@
   box-shadow: 2px 2px 2px 2px rgb(75, 76, 82);
   margin-bottom: 20px;
   padding: 10px;
-  width: 90;
+  width: 90%;
   margin: 0 auto;
 }
 
 .project-image {
   width: 100%;
-  max-width: 100%;
   height: auto;
   border-radius: 5px;
   box-shadow: 0 4px 8px rgb(184, 184, 184);
@@ -472,6 +517,53 @@
   .project-detail {
     grid-template-columns: 1fr;
   }
+  .project-description {
+    margin-left: 0;
+  }
+}
+@media screen and (max-width: 768px) {
+  .project-description {
+    font-size: 0.9rem;
+  }
+  .appointment-section-title {
+    font-size: 1.3rem;
+  }
+  .appointment-section-subtitle {
+    font-size: 0.8rem;
+  }
+  .appointment-section-form-label {
+    font-size: 0.8rem;
+  }
+  .appointment-section-form-input[type=email],
+  .appointment-section-form-input[type=date] {
+    font-size: 0.8rem;
+  }
+  .appointment-section-form-button[type=submit] {
+    font-size: 0.9rem;
+    padding: 8px 16px;
+  }
+}
+@media screen and (max-width: 500px) {
+  .project-description {
+    font-size: 0.8rem;
+  }
+  .appointment-section-title {
+    font-size: 1.1rem;
+  }
+  .appointment-section-subtitle {
+    font-size: 0.7rem;
+  }
+  .appointment-section-form-label {
+    font-size: 0.7rem;
+  }
+  .appointment-section-form-input[type=email],
+  .appointment-section-form-input[type=date] {
+    font-size: 0.7rem;
+  }
+  .appointment-section-form-button[type=submit] {
+    font-size: 0.8rem;
+    padding: 6px 12px;
+  }
 }
 .contact-section {
   border-radius: 5px;
@@ -481,12 +573,13 @@
   padding: 10px;
   height: 100%;
   justify-content: center;
-  margin-top: 20px;
+  margin-top: 100px;
 }
 .contact-section .contact-form {
   display: flex;
   flex-direction: column;
   align-items: center;
+  height: 100%;
 }
 .contact-section .contact-form .contact-form-button[type=submit] {
   background-color: #26262c;
@@ -560,11 +653,6 @@ body {
   font-weight: bold;
   text-transform: uppercase;
 }
-@media (min-width: 768px) {
-  .nav-container {
-    grid-template-columns: 2fr 1fr;
-  }
-}
 .nav-container .header-nav-ul {
   display: flex;
   list-style: none;
@@ -599,6 +687,12 @@ body {
   color: #a5a5a5;
   text-align: center;
   padding: 10px;
+}
+
+@media screen and (min-width: 768px) {
+  .nav-container {
+    grid-template-columns: 2fr 1fr;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -1,3 +1,7 @@
+.info-section {
+  width: 100%;
+}
+
 .about-me {
   margin-bottom: 10px;
   @include center-section();
@@ -9,20 +13,12 @@
 
   .section-img {
     width: 100%;
-    max-width: 500px; 
+    max-width: 500px;
     mix-blend-mode: $blend-image-dark;
   }
 }
 
-/* Adjust font sizes for smaller screens */
-@media screen and (max-width: 767px) {
-  .work-section-h2 {
-    font-size: 1.5rem;
-  }
-}
-
-
-@media screen and (min-width: 768px) and (max-width: 1024px) {
+@media screen and (min-width: 768px) and (max-width: 1023px) {
   .work-section .works {
     flex: 0 1 calc(50% - 10px);
   }
@@ -37,22 +33,17 @@
   .about-me {
     display: flex;
     flex-direction: column;
+    margin-top: 50px;
   }
 
   /* Adjust font sizes */
   .work-section-h2,
-  .category-header {
-    font-size: 1.8rem;
-  }
-  .skill-item-h3 {
-    font-size: 1rem;
-  }
+  .category-header,
+  .skill-item-h3,
   .aboutme-paraghraph,
-  .aboutme-small {
-    font-size: 1rem;
-  }
+  .aboutme-small,
   .aboutme-header {
-    font-size: 1.8rem;
+    font-size: 1rem;
   }
 
   /* Adjust image */
@@ -92,9 +83,6 @@
   .section-img {
     max-width: 100%;
   }
-  .aboutme-paraghraph {
-    font-size: 0.8rem;
-  }
   .aboutme-small {
     font-size: 0.5rem;
   }
@@ -115,16 +103,53 @@
     width: 100%;
   }
 }
-
-@media screen and (max-width: 653px) and (min-height: 280px) {
+@media screen and (max-width: 683px) and (min-width: 639px) {
   .aboutme-text {
-    // width: 100%;
-  }
-  .aboutme-paraghraph,
-  .aboutme-small {
     font-size: 0.6rem;
-    text-align: left;
-  
+  }
+}
+
+@media screen and (max-width: 766px) and (min-height: 629px) {
+  .aboutme-text {
+    font-size: 0.7rem;
+  }
+  .about-me {
+    padding: 15px;
+  }
+
+  footer {
+    font-size: 0.9rem;
+  }
+}
+@media screen and (max-width: 628px) and (min-height: 449px) {
+  .aboutme-text {
+    font-size: 0.6rem;
+  }
+  .about-me {
+    padding: 15px;
+  }
+  footer {
+    font-size: 0.9rem;
+  }
+}
+@media screen and (max-width: 448px) and (min-height: 321px) {
+  .aboutme-text {
+    font-size: 0.6rem;
+  }
+  .about-me {
+    padding: 15px;
+  }
+  footer {
+    font-size: 0.9rem;
+  }
+}
+
+@media screen and (max-width: 395px) {
+  .aboutme-text {
+    font-size: 0.4rem;
+  }
+  .about-me {
+    padding: 10px;
   }
   footer {
     font-size: 0.9rem;
