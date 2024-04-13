@@ -639,6 +639,9 @@
   .contact-form-fields {
     width: 60%;
   }
+  .contact-form-fields-label {
+    font-size: 1rem;
+  }
   .contact-form-fields-input {
     height: auto;
     margin-top: 10px;
@@ -660,8 +663,11 @@
     padding: 6px 12px; /* Adjust padding for button */
     font-size: 0.8rem; /* Adjust font size for button */
   }
+  .contact-form-fields-label {
+    font-size: 0.8rem;
+  }
   .contact-form-fields-input {
-    height: 1rem;
+    height: auto;
     margin-top: 10px;
     padding: 5px;
     font-size: 0.7rem;
