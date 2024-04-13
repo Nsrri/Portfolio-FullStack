@@ -4,49 +4,90 @@
   padding: 10px;
   height: 100%;
   justify-content: center;
-  margin-top: 100px;
+}
 
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+}
+
+.contact-form-button[type="submit"] {
+  @include submitButton-design;
+}
+
+.contact-form-fields {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  justify-content: center;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.contact-form-fields-input {
+  width: 100%;
+  background-color: transparent;
+  border: 1px solid $color-dark;
+  border-radius: 5px;
+  height: $input-height;
+  margin-top: 10px;
+  padding: 5px;
+  color: $color-dark;
+  font-size: $input-fontsize;
+
+  &:focus {
+    box-shadow: 0 4px 8px rgb(240, 248, 248);
+  }
+}
+
+/* Adjust layout for smaller screens */
+@media screen and (max-width: 1092px) and (min-width: 760px) {
   .contact-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 100%;
-
-    .contact-form-button[type="submit"] {
-      @include submitButton-design;
-    }
-
-    .contact-form-fields {
-      display: flex;
-      flex-direction: column;
-      width: 60%;
-      justify-content: center;
-      align-items: flex-start;
-      margin-bottom: 20px;
-
-      .contact-form-fields-input {
-        width: 100%;
-        background-color: transparent;
-        border: 1px solid $color-dark;
-        border-radius: 5px;
-        height: $input-height;
-        margin-top: 10px;
-        padding: 5px;
-        color: $color-dark;
-        font-size: $input-fontsize;
-
-        &:focus {
-          box-shadow: 0 4px 8px rgb(240, 248, 248);
-        }
-      }
-    }
+    width: 90%; /* Reduce form width for medium-sized screens */
+  }
+  .contact-form-h2 {
+    font-size: 1.5rem;
   }
 
-  @media screen and (max-width: 839px) {
-    margin-top: 50px;
+  .contact-form-p {
+    font-size: 1rem;
+  }
+  .contact-form-button[type="submit"] {
+    padding: 8px 16px; /* Adjust padding for button */
+    font-size: 0.9rem; /* Adjust font size for button */
+  }
+  .contact-form-fields {
+    width: 60%;
+  }
+  .contact-form-fields-input {
+    height: auto;
+    margin-top: 10px;
+    padding: 5px;
+    font-size: 0.9rem;
+  }
+}
 
-    .contact-form-fields {
-      width: 100%;
-    }
+@media screen and (max-width: 759px) and (min-height: 320px) {
+  .contact-form {
+    width: 95%; /* Reduce form width for smaller screens */
+  }
+  .contact-form-h2 {
+    font-size: 1rem;
+  }
+  .contact-form-p {
+    font-size: 0.8rem;
+  }
+
+  .contact-form-button[type="submit"] {
+    padding: 6px 12px; /* Adjust padding for button */
+    font-size: 0.8rem; /* Adjust font size for button */
+  }
+  .contact-form-fields-input {
+    height: 1rem;
+    margin-top: 10px;
+    padding: 5px;
+    font-size: 0.7rem;
   }
 }
