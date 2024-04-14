@@ -3,6 +3,8 @@
   text-align: center;
   padding: 10px;
   height: 100%;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
 }
 
@@ -10,7 +12,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100%;
+  width: 100%;
 }
 
 .contact-form-button[type="submit"] {
@@ -42,10 +44,10 @@
   }
 }
 
-/* Adjust layout for smaller screens */
 @media screen and (max-width: 1092px) and (min-width: 760px) {
   .contact-form {
-    width: 90%; /* Reduce form width for medium-sized screens */
+    width: 90%;
+    align-self: center;
   }
   .contact-form-h2 {
     font-size: 1.5rem;
@@ -55,8 +57,8 @@
     font-size: 1rem;
   }
   .contact-form-button[type="submit"] {
-    padding: 8px 16px; /* Adjust padding for button */
-    font-size: 0.9rem; /* Adjust font size for button */
+    padding: 8px 16px;
+    font-size: 0.9rem;
   }
   .contact-form-fields {
     width: 60%;
@@ -74,7 +76,7 @@
 
 @media screen and (max-width: 759px) and (min-height: 320px) {
   .contact-form {
-    width: 95%; /* Reduce form width for smaller screens */
+    width: 95%;
   }
   .contact-form-h2 {
     font-size: 1rem;
@@ -83,17 +85,19 @@
     font-size: 0.8rem;
   }
 
-  .contact-form-button[type="submit"] {
-    padding: 6px 12px; /* Adjust padding for button */
-    font-size: 0.8rem; /* Adjust font size for button */
-  }
   .contact-form-fields-label {
-    font-size: 0.8rem;
+    font-size: 0.7rem;
+  }
+
+  .contact-form-button[type="submit"] {
+    padding: 6px 12px;
+    font-size: 0.7rem;
+
   }
   .contact-form-fields-input {
     height: auto;
     margin-top: 10px;
     padding: 5px;
-    font-size: 0.7rem;
+    font-size: 0.6rem;
   }
 }

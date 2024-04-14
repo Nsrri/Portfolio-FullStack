@@ -1,15 +1,12 @@
 /* $radius is the parameter of the function */
-.gird-container {
+.grid-container {
   background-color: #26262c;
-  padding-top: 10%;
-}
-
-.info-section {
-  width: 100%;
+  flex-grow: 1;
+  margin-top: 10px;
 }
 
 .about-me {
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   display: grid;
   grid-template-columns: 2fr 1fr;
   justify-content: center;
@@ -18,14 +15,15 @@
   padding: 40px;
   border-radius: 5px;
   box-shadow: 2px 2px 2px 2px rgb(75, 76, 82);
-  margin-bottom: 20px;
+  margin-top: 100px;
 }
-.about-me .section-img-container {
+
+.section-img-container {
   text-align: center; /* Center the image horizontally */
 }
-.about-me .section-img {
+
+.section-img {
   width: 100%;
-  max-width: 500px;
   mix-blend-mode: lighten;
 }
 
@@ -43,7 +41,7 @@
   .about-me {
     display: flex;
     flex-direction: column;
-    margin-top: 50px;
+    margin-top: 100px;
   }
   /* Adjust font sizes */
   .work-section-h2,
@@ -51,12 +49,16 @@
   .skill-item-h3,
   .aboutme-paraghraph,
   .aboutme-small,
-  .aboutme-header {
+  .aboutme-header,
+  .works-header {
     font-size: 1rem;
+  }
+  .works-status {
+    font-size: 0.9rem;
   }
   /* Adjust image */
   .section-img {
-    max-width: 100%;
+    max-width: 80%;
   }
   /* Adjust form width */
   .newsletter-section-form-label,
@@ -67,7 +69,7 @@
   }
 }
 /* Adjust layout for smaller screens */
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 767px) and (min-width: 682px) {
   .nav-container {
     flex-direction: column;
     text-align: center;
@@ -78,6 +80,56 @@
   .about-me {
     display: flex;
     flex-direction: column;
+    margin-top: 140px;
+  }
+  .section-img-container {
+    width: 100%;
+    justify-content: center;
+  }
+  .section-img {
+    max-width: 100%;
+  }
+  .aboutme-small {
+    font-size: 0.5rem;
+  }
+  .aboutme-header,
+  .works-header {
+    font-size: 0.99rem;
+  }
+  .works-status {
+    font-size: 0.7rem;
+  }
+  .work-section-h2,
+  .category-header {
+    font-size: 1rem;
+  }
+  .skill-item-h3 {
+    font-size: 0.9rem;
+  }
+  /* Adjust form width */
+  .newsletter-section-form-label,
+  .newsletter-section-form-input {
+    width: 100%;
+  }
+  footer {
+    font-size: 0.8rem;
+  }
+}
+@media screen and (max-width: 681px) and (min-width: 639px) {
+  .nav-container {
+    flex-direction: column;
+    text-align: center;
+  }
+  .header-nav-li-a {
+    margin: 5px 0;
+  }
+  .about-me {
+    display: flex;
+    flex-direction: column;
+    margin-top: 140px;
+  }
+  .aboutme-paraghraph {
+    font-size: 1rem;
   }
   .section-img-container {
     width: 100%;
@@ -92,6 +144,9 @@
   .aboutme-header {
     font-size: 0.99rem;
   }
+  .works-status {
+    font-size: 0.6rem;
+  }
   .work-section-h2,
   .category-header {
     font-size: 1rem;
@@ -104,54 +159,79 @@
   .newsletter-section-form-input {
     width: 100%;
   }
-}
-@media screen and (max-width: 683px) and (min-width: 639px) {
-  .aboutme-text {
-    font-size: 0.6rem;
-  }
-}
-@media screen and (max-width: 766px) and (min-height: 629px) {
-  .aboutme-text {
+  footer {
     font-size: 0.7rem;
   }
-  .about-me {
-    padding: 15px;
-  }
-  footer {
-    font-size: 0.9rem;
-  }
 }
-@media screen and (max-width: 628px) and (min-height: 449px) {
-  .aboutme-text {
+@media screen and (max-width: 638px) and (min-height: 448px) {
+  .nav-container {
+    flex-direction: column;
+    text-align: center;
+  }
+  .header-nav-li-a {
+    margin: 5px 0;
+  }
+  .about-me {
+    display: flex;
+    flex-direction: column;
+    margin-top: 150px;
+  }
+  .aboutme-paraghraph {
     font-size: 0.6rem;
   }
-  .about-me {
-    padding: 15px;
+  .section-img-container {
+    width: 100%;
+    justify-content: center;
   }
-  footer {
-    font-size: 0.9rem;
+  .section-img {
+    max-width: 100%;
   }
-}
-@media screen and (max-width: 448px) and (min-height: 321px) {
-  .aboutme-text {
+  .aboutme-small {
+    font-size: 0.5rem;
+  }
+  .aboutme-header {
+    font-size: 0.99rem;
+  }
+  .works-status {
     font-size: 0.6rem;
   }
-  .about-me {
-    padding: 15px;
+  .work-section-h2,
+  .category-header {
+    font-size: 1rem;
   }
-  footer {
+  .skill-item-h3 {
     font-size: 0.9rem;
   }
+  /* Adjust form width */
+  .newsletter-section-form-label,
+  .newsletter-section-form-input {
+    width: 100%;
+  }
+  footer {
+    font-size: 0.6rem;
+  }
 }
-@media screen and (max-width: 395px) {
-  .aboutme-text {
+@media screen and (max-width: 447px) and (min-width: 320px) {
+  .about-me {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    justify-content: center;
+    align-items: center;
+  }
+  .aboutme-paraghraph {
     font-size: 0.4rem;
   }
+  .aboutme-header,
+  .works-header {
+    font-size: 0.9rem;
+  }
   .about-me {
-    padding: 10px;
+    padding: 15px;
+    margin-top: 160px;
   }
   footer {
-    font-size: 0.9rem;
+    font-size: 0.5rem;
   }
 }
 .work-section {
@@ -162,7 +242,6 @@
   align-items: center;
   border-radius: 5px;
   box-shadow: 2px 2px 2px 2px rgb(75, 76, 82);
-  margin-bottom: 20px;
   padding: 10px;
 }
 
@@ -255,11 +334,55 @@
   .work-section .works {
     flex: 0 1 100%;
   }
+  .categorey {
+    padding-bottom: 10px;
+  }
+  .categorey .skill-item {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  }
+  .categorey .skill-item .skill-item-div {
+    background-color: #edf2fb;
+    border-radius: 5px;
+    padding: 20px;
+    text-align: center;
+    width: 100px;
+  }
+  .categorey .skill-item .skill-item-div .skill-item-h3 {
+    font-size: 0.7rem;
+    margin: 0;
+    color: hsl(218, 92%, 5%);
+  }
 }
 @media screen and (max-width: 653px) and (min-height: 280px) {
   .work-image {
     width: 80%;
     height: 80%;
+  }
+  .categorey {
+    padding-bottom: 10px;
+  }
+  .categorey .skill-item {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  }
+  .categorey .skill-item .skill-item-div {
+    background-color: #edf2fb;
+    border-radius: 5px;
+    padding: 20px;
+    text-align: center;
+    width: 90px;
+  }
+  .categorey .skill-item .skill-item-div .skill-item-h3 {
+    font-size: 0.6rem;
+    margin: 0;
+    color: hsl(218, 92%, 5%);
   }
 }
 .section-subscription {
@@ -280,24 +403,27 @@
 .newsletter-section {
   border-radius: 5px;
   box-shadow: 2px 2px 2px 2px rgb(75, 76, 82);
-  margin-bottom: 20px;
   text-align: center;
   padding: 10px;
 }
-.newsletter-section .newsletter-section-title {
+
+.newsletter-section-title {
   color: #e6e7e9;
   padding-bottom: 20px;
 }
-.newsletter-section .newsletter-section-subtitle {
+
+.newsletter-section-subtitle {
   color: #e6e7e9;
   margin-bottom: 20px;
 }
-.newsletter-section .newsletter-section-form .newsletter-section-form-label {
+
+.newsletter-section-form .newsletter-section-form-label {
   color: #e6e7e9;
   margin-top: 5px;
   margin-bottom: 5px;
 }
-.newsletter-section .newsletter-section-form .newsletter-section-form-input[type=email] {
+
+.newsletter-section-form-input[type=email] {
   background-color: transparent;
   color: #e6e7e9;
   border: none;
@@ -307,11 +433,12 @@
   padding: 5px;
   box-sizing: border-box;
 }
-.newsletter-section .newsletter-section-form .newsletter-section-form-input[type=email]:focus {
+.newsletter-section-form-input[type=email]:focus {
   outline: none;
   border-color: #e6e7e9;
 }
-.newsletter-section .newsletter-section-form .newsletter-section-form-button[type=submit] {
+
+.newsletter-section-form-button[type=submit] {
   background-color: #26262c;
   color: #e6e7e9;
   border: 1px solid #e6e7e9;
@@ -320,7 +447,7 @@
   cursor: pointer;
   margin-top: 20px;
 }
-.newsletter-section .newsletter-section-form .newsletter-section-form-button[type=submit]:hover {
+.newsletter-section-form-button[type=submit]:hover {
   background-color: #f8f9fa;
   color: hsl(218, 92%, 5%);
   border: 1px solid hsl(218, 92%, 5%);
@@ -337,11 +464,13 @@
     font-size: 1rem;
   }
 }
-@media screen and (min-width: 653px) and (max-width: 804px) {
+@media screen and (max-width: 839px) {
   .newsletter-section {
-    max-width: 100%;
+    width: 97%;
   }
-  .newsletter-section-title {
+}
+@media screen and (min-width: 653px) and (max-width: 803px) {
+  s .newsletter-section-title {
     font-size: 1rem;
   }
   .newsletter-section-subtitle {
@@ -352,14 +481,11 @@
   }
 }
 @media screen and (max-width: 653px) {
-  .newsletter-section {
-    max-width: 100%;
-  }
   .newsletter-section-title {
     font-size: 1rem;
   }
   .newsletter-section-subtitle {
-    font-size: 0.98rem;
+    font-size: 0.7rem;
   }
   .newsletter-section-form-label {
     font-size: 0.8rem;
@@ -399,14 +525,21 @@
 .filter-overview {
   display: flex;
   flex-direction: column;
+  margin-top: 80px;
 }
 
 @media screen and (max-width: 1024px) {
   .filter-item {
     max-width: 25%;
   }
+  .filter-overview {
+    margin-top: 90px;
+  }
 }
 @media screen and (max-width: 767px) {
+  .filter-overview {
+    margin-top: 110px;
+  }
   .filter {
     width: 100%;
     flex-wrap: wrap;
@@ -417,8 +550,23 @@
   }
 }
 @media screen and (max-width: 480px) {
+  .filter {
+    width: 100%;
+    flex-wrap: wrap;
+  }
   .filter-item {
-    max-width: 50%;
+    width: 50%;
+  }
+  .filter-overview {
+    margin-top: 130px;
+  }
+  .filter-item-p {
+    margin: 0;
+    font-size: 0.8rem;
+  }
+  .filter-title,
+  .filter-item-title {
+    font-size: 1.2rem;
   }
 }
 .project-detail {
@@ -428,10 +576,11 @@
   align-items: center;
   border-radius: 5px;
   box-shadow: 2px 2px 2px 2px rgb(75, 76, 82);
-  margin-bottom: 20px;
   padding: 10px;
   width: 90%;
-  margin: 0 auto;
+  margin-top: 100px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .project-image {
@@ -463,7 +612,7 @@
 
 .appointment-section-subtitle {
   color: #e6e7e9;
-  font-size: 0.9rem;
+  font-size: 1rem;
   margin-bottom: 15px;
   display: block;
 }
@@ -472,11 +621,12 @@
   margin: 0 auto;
 }
 
-.appointment-section-form-label {
+.appointment-section-form-lable {
   display: block;
   text-align: left;
   margin-bottom: 5px;
   padding-bottom: 10px;
+  font-size: 0.9rem;
 }
 
 .appointment-section-form-input[type=email],
@@ -513,15 +663,23 @@
   background-color: #f8f9fa;
 }
 
-@media screen and (max-width: 1061px) {
+@media screen and (max-width: 1061px) and (min-width: 769px) {
   .project-detail {
     grid-template-columns: 1fr;
+    margin-top: 120px;
   }
   .project-description {
     margin-left: 0;
   }
+  .project-image {
+    width: 80%;
+  }
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 768px) and (min-width: 499px) {
+  .project-detail {
+    grid-template-columns: 1fr;
+    margin-top: 150px;
+  }
   .project-description {
     font-size: 0.9rem;
   }
@@ -531,30 +689,60 @@
   .appointment-section-subtitle {
     font-size: 0.8rem;
   }
-  .appointment-section-form-label {
+  .appointment-section-form-lable {
     font-size: 0.8rem;
   }
   .appointment-section-form-input[type=email],
   .appointment-section-form-input[type=date] {
-    font-size: 0.8rem;
+    font-size: 0.7rem;
   }
   .appointment-section-form-button[type=submit] {
     font-size: 0.9rem;
     padding: 8px 16px;
   }
 }
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 500px) and (min-width: 386px) {
+  .project-detail {
+    grid-template-columns: 1fr;
+    margin-top: 180px;
+  }
   .project-description {
     font-size: 0.8rem;
   }
   .appointment-section-title {
-    font-size: 1.1rem;
+    font-size: 1rem;
   }
   .appointment-section-subtitle {
+    font-size: 0.8rem;
+  }
+  .appointment-section-form-lable {
+    font-size: 0.6rem;
+  }
+  .appointment-section-form-input[type=email],
+  .appointment-section-form-input[type=date] {
     font-size: 0.7rem;
   }
-  .appointment-section-form-label {
-    font-size: 0.7rem;
+  .appointment-section-form-button[type=submit] {
+    font-size: 0.8rem;
+    padding: 6px 12px;
+  }
+}
+@media screen and (max-width: 385px) {
+  .project-detail {
+    grid-template-columns: 1fr;
+    margin-top: 190px;
+  }
+  .project-description {
+    font-size: 0.8rem;
+  }
+  .appointment-section-title {
+    font-size: 1rem;
+  }
+  .appointment-section-subtitle {
+    font-size: 0.8rem;
+  }
+  .appointment-section-form-lable {
+    font-size: 0.6rem;
   }
   .appointment-section-form-input[type=email],
   .appointment-section-form-input[type=date] {
@@ -568,10 +756,11 @@
 .contact-section {
   border-radius: 5px;
   box-shadow: 2px 2px 2px 2px rgb(75, 76, 82);
-  margin-bottom: 20px;
   text-align: center;
   padding: 10px;
   height: 100%;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
 }
 
@@ -579,7 +768,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100%;
+  width: 100%;
 }
 
 .contact-form-button[type=submit] {
@@ -621,10 +810,10 @@
   box-shadow: 0 4px 8px rgb(240, 248, 248);
 }
 
-/* Adjust layout for smaller screens */
 @media screen and (max-width: 1092px) and (min-width: 760px) {
   .contact-form {
-    width: 90%; /* Reduce form width for medium-sized screens */
+    width: 90%;
+    align-self: center;
   }
   .contact-form-h2 {
     font-size: 1.5rem;
@@ -633,8 +822,8 @@
     font-size: 1rem;
   }
   .contact-form-button[type=submit] {
-    padding: 8px 16px; /* Adjust padding for button */
-    font-size: 0.9rem; /* Adjust font size for button */
+    padding: 8px 16px;
+    font-size: 0.9rem;
   }
   .contact-form-fields {
     width: 60%;
@@ -651,7 +840,7 @@
 }
 @media screen and (max-width: 759px) and (min-height: 320px) {
   .contact-form {
-    width: 95%; /* Reduce form width for smaller screens */
+    width: 95%;
   }
   .contact-form-h2 {
     font-size: 1rem;
@@ -659,47 +848,57 @@
   .contact-form-p {
     font-size: 0.8rem;
   }
-  .contact-form-button[type=submit] {
-    padding: 6px 12px; /* Adjust padding for button */
-    font-size: 0.8rem; /* Adjust font size for button */
-  }
   .contact-form-fields-label {
-    font-size: 0.8rem;
+    font-size: 0.7rem;
+  }
+  .contact-form-button[type=submit] {
+    padding: 6px 12px;
+    font-size: 0.7rem;
   }
   .contact-form-fields-input {
     height: auto;
     margin-top: 10px;
     padding: 5px;
-    font-size: 0.7rem;
+    font-size: 0.6rem;
   }
 }
 .aboutTeam {
-  margin-top: 10%;
+  margin-top: 80px;
   border-radius: 5px;
   box-shadow: 2px 2px 2px 2px rgb(75, 76, 82);
-  margin-bottom: 20px;
   display: grid;
   grid-template-columns: 2fr 1fr;
   justify-content: center;
   margin-left: auto;
   margin-right: auto;
   padding: 40px;
+  margin-bottom: 20px;
 }
-.aboutTeam .section-img-container {
+
+.section-img-container {
   text-align: center;
 }
-.aboutTeam .section-img-contact {
+
+.section-img-contact {
   width: 100%;
   clip-path: circle();
   mix-blend-mode: lighten;
 }
 
+@media screen and (max-width: 1395px) and (min-width: 1092px) {
+  .aboutTeam {
+    margin-top: 90px;
+  }
+}
 @media screen and (max-width: 1092px) and (min-width: 760px) {
+  .aboutTeam {
+    margin-top: 95px;
+  }
   .section-img-contact {
     max-width: 80%;
   }
   .aboutTeam-paraghraph {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
   }
   .aboutTeam-small {
     font-size: 0.8rem;
@@ -708,16 +907,17 @@
     font-size: 1.1rem;
   }
 }
-@media screen and (max-width: 759px) and (min-height: 320px) {
+@media screen and (max-width: 759px) and (min-width: 480px) {
+  .section-img-contact {
+    max-width: 60%;
+    display: block;
+    align-self: center;
+  }
   .aboutTeam {
     display: flex;
     justify-content: center;
     flex-direction: column;
-  }
-  .section-img-contact {
-    max-width: 50%;
-    display: block;
-    margin: 0 auto;
+    margin-top: 140px;
   }
   .section-img-container-contact {
     width: 100%;
@@ -726,13 +926,41 @@
     align-items: center;
   }
   .aboutTeam-paraghraph {
-    font-size: 0.7rem;
+    font-size: 0.9rem;
   }
   .aboutTeam-small {
-    font-size: 0.5rem;
+    font-size: 0.7rem;
   }
   .aboutTeam-header {
+    font-size: 1rem;
+  }
+}
+@media screen and (max-width: 479px) and (min-height: 320px) {
+  .aboutTeam {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 150px;
+  }
+  .section-img-contact {
+    max-width: 60%;
+    display: block;
+    align-self: center;
+  }
+  .section-img-container-contact {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .aboutTeam-paraghraph {
     font-size: 0.8rem;
+  }
+  .aboutTeam-small {
+    font-size: 0.7rem;
+  }
+  .aboutTeam-header {
+    font-size: 1rem;
   }
 }
 body {
@@ -743,43 +971,51 @@ body {
   min-height: 100vh;
   color: #e6e7e9;
   overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
   /* using the mixins function */
 }
 
 .nav-container {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 4fr 1fr;
   width: 100%;
   position: fixed;
   top: 0;
   left: 0;
   background-color: #495057;
   opacity: 0.9;
-  padding: 10px;
+  padding: 20px;
 }
-.nav-container .logo-h1 {
+
+.logo-h1 {
   font-size: 2rem;
   font-weight: bold;
   text-transform: uppercase;
+  padding-left: 10px;
 }
-.nav-container .header-nav-ul {
+
+.header-nav-ul {
   display: flex;
   list-style: none;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
-  padding: 0;
 }
-.nav-container .header-nav-ul .header-nav-li {
-  margin: 0 10px;
+
+.header-nav-li {
+  margin-right: 30px;
 }
-.nav-container .header-nav-ul .header-nav-li-a {
+
+.header-nav-li-a {
   color: #e6e7e9;
   text-decoration: none;
 }
-.nav-container .header-nav-ul .header-nav-li-a:hover {
+
+.header-nav-li-a:hover {
   color: #66b2ff;
 }
-.nav-container .header-nav-ul .header-nav-li-a:active {
+
+.header-nav-li-a:active {
   color: #66b2ff;
 }
 
@@ -788,19 +1024,24 @@ body {
   color: #66b2ff;
 }
 
-.activity-bar {
-  display: none;
-}
-
 .footer {
   color: #a5a5a5;
   text-align: center;
   padding: 10px;
+  margin-top: auto;
+  text-align: center;
+  width: 100%;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (max-width: 768px) {
   .nav-container {
-    grid-template-columns: 2fr 1fr;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .header-nav-li {
+    margin-right: 25px;
   }
 }
 

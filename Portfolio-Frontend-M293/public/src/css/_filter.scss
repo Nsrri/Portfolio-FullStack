@@ -34,28 +34,48 @@
 .filter-overview {
   display: flex;
   flex-direction: column;
+  margin-top: 80px;
 }
 @media screen and (max-width: 1024px) {
   .filter-item {
-    max-width: 25%; 
+    max-width: 25%;
+  }
+  .filter-overview {
+    margin-top: 90px;
   }
 }
 
-
 @media screen and (max-width: 767px) {
+  .filter-overview {
+    margin-top: 110px;
+  }
   .filter {
     width: 100%;
     flex-wrap: wrap;
   }
   .filter-item {
-    width: 100%; 
+    width: 100%;
     margin: 5px;
   }
 }
 
-
 @media screen and (max-width: 480px) {
+  .filter {
+    width: 100%;
+    flex-wrap: wrap;
+  }
   .filter-item {
-    max-width: 50%; 
+    width: 50%;
+  }
+  .filter-overview {
+    margin-top: 130px;
+  }
+  .filter-item-p {
+    margin: 0;
+    font-size: 0.8rem;
+  }
+  .filter-title,
+  .filter-item-title {
+    font-size: 1.2rem;
   }
 }

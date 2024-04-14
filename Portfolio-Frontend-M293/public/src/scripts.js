@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-
+// This is part make the project creation dynamic.
 const params = new URLSearchParams(window.location.search);
 const description = params.get('description');
 const image = params.get('img');

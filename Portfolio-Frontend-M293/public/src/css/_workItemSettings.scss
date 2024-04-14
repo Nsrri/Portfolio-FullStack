@@ -95,11 +95,36 @@
   .work-section .works {
     flex: 0 1 calc(50% - 10px);
   }
+
 }
 
 @media screen and (max-width: 839px) {
   .work-section .works {
     flex: 0 1 100%;
+  }
+  .categorey {
+    .skill-item {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+
+      .skill-item-div {
+        background-color: #edf2fb;
+        border-radius: 5px;
+        padding: 20px;
+        text-align: center;
+        width: 100px;
+
+        .skill-item-h3 {
+          font-size: 0.7rem;
+          margin: 0;
+          color: $color-light;
+        }
+      }
+    }
+    padding-bottom: 10px;
   }
 }
 
@@ -107,5 +132,29 @@
   .work-image {
     width: 80%;
     height: 80%;
+  }
+  .categorey {
+    .skill-item {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+
+      .skill-item-div {
+        background-color: #edf2fb;
+        border-radius: 5px;
+        padding: 20px;
+        text-align: center;
+        width: 90px;
+
+        .skill-item-h3 {
+          font-size: 0.6rem;
+          margin: 0;
+          color: $color-light;
+        }
+      }
+    }
+    padding-bottom: 10px;
   }
 }
